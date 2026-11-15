@@ -2148,6 +2148,327 @@
       transform: scale(1.04);
     }
 
+    /* Mobile Save-to-Photo-Album iOS Frosted Glass Bottom Sheet (Dark Cinema & Minimal White Themes) */
+    .mobile-save-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      background: rgba(9, 9, 11, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      animation: drawerSlideIn 0.24s var(--ease-out-expo) both;
+    }
+
+    @media (min-width: 640px) {
+      .mobile-save-backdrop {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+
+    .mobile-save-sheet {
+      --sheet-bg: rgba(20, 20, 23, 0.86);
+      --sheet-surface: rgba(39, 39, 44, 0.72);
+      --sheet-border: rgba(255, 255, 255, 0.14);
+      --sheet-ink: #fafafa;
+      --sheet-muted: rgba(244, 244, 245, 0.72);
+      --sheet-handle: rgba(255, 255, 255, 0.34);
+      --sheet-btn-bg: #ffffff;
+      --sheet-btn-ink: #09090b;
+
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      background: var(--sheet-bg);
+      color: var(--sheet-ink);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid var(--sheet-border);
+      border-bottom: none;
+      border-radius: 28px 28px 0 0;
+      padding: 8px 18px calc(22px + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+      transition: transform 0.26s var(--ease-out-expo), background 0.22s ease, color 0.22s ease;
+      touch-action: pan-x pan-y;
+    }
+
+    .mobile-save-sheet[data-sheet-theme="light"] {
+      --sheet-bg: rgba(255, 255, 255, 0.88);
+      --sheet-surface: rgba(244, 244, 245, 0.85);
+      --sheet-border: rgba(9, 9, 11, 0.1);
+      --sheet-ink: #09090b;
+      --sheet-muted: #52525b;
+      --sheet-handle: rgba(9, 9, 11, 0.22);
+      --sheet-btn-bg: #09090b;
+      --sheet-btn-ink: #ffffff;
+      box-shadow: 0 -16px 48px rgba(9, 9, 11, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .mobile-save-sheet.is-dragging {
+      transition: none;
+    }
+
+    @media (min-width: 640px) {
+      .mobile-save-sheet {
+        border-radius: 28px;
+        border-bottom: 1px solid var(--sheet-border);
+        padding: 10px 22px 24px;
+      }
+    }
+
+    /* Drag Handle Bar (Swipe Down to Close) */
+    .mobile-sheet-handle-area {
+      width: 100%;
+      padding: 6px 0 4px;
+      display: flex;
+      justify-content: center;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    .mobile-sheet-handle {
+      width: 42px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--sheet-handle);
+    }
+
+    .mobile-save-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mobile-save-header h3 {
+      margin: 0 0 3px;
+      font-family: var(--font-display);
+      font-size: 17.5px;
+      font-weight: 600;
+      color: var(--sheet-ink);
+    }
+
+    .mobile-save-header p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--sheet-muted);
+      line-height: 1.45;
+    }
+
+    .mobile-sheet-top-btns {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .sheet-pill-ctrl {
+      background: var(--sheet-surface);
+      color: var(--sheet-ink);
+      border: 1px solid var(--sheet-border);
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.18s ease, transform 0.15s ease;
+    }
+
+    .sheet-pill-ctrl:active {
+      transform: scale(0.96);
+    }
+
+    /* Device-Specific Smart Guide Banner (iPhone / LINE / Android) */
+    .mobile-device-guide {
+      background: var(--sheet-surface);
+      border: 1px solid var(--sheet-border);
+      border-radius: 14px;
+      padding: 9px 12px;
+      font-size: 12px;
+      color: var(--sheet-ink);
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .mobile-device-guide-dot {
+      width: 7px;
+      height: 7px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+
+    /* Live Preparation Progress Bar */
+    .mobile-progress-wrap {
+      background: var(--sheet-surface);
+      border: 1px solid var(--sheet-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-progress-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--sheet-ink);
+    }
+
+    .mobile-progress-track {
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(128, 128, 136, 0.24);
+      overflow: hidden;
+    }
+
+    .mobile-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #34d399 0%, #10b981 100%);
+      transition: width 0.22s ease;
+    }
+
+    .mobile-save-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-save-main-btn {
+      width: 100%;
+      min-height: 46px;
+      border-radius: 999px;
+      border: none;
+      background: var(--sheet-btn-bg);
+      color: var(--sheet-btn-ink);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 11px 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      transition: transform 0.16s ease, opacity 0.18s ease;
+    }
+
+    .mobile-save-main-btn:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    .mobile-save-main-btn.is-saved {
+      background: #16a34a !important;
+      color: #ffffff !important;
+    }
+
+    /* Large Horizontal Swipeable Carousel for Thumb-Friendly Long-Press & Per-Photo Save */
+    .mobile-save-grid {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 2px 2px 8px;
+      scrollbar-width: thin;
+    }
+
+    .mobile-save-item {
+      flex: 0 0 82%;
+      scroll-snap-align: center;
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--sheet-surface);
+      border: 1px solid var(--sheet-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-save-grid.single-item .mobile-save-item {
+      flex: 0 0 100%;
+    }
+
+    .mobile-save-item img {
+      width: 100%;
+      height: 34vh;
+      max-height: 300px;
+      object-fit: contain;
+      display: block;
+      background: rgba(0, 0, 0, 0.14);
+      -webkit-touch-callout: default !important;
+      user-select: auto;
+    }
+
+    .mobile-slide-footer {
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid var(--sheet-border);
+    }
+
+    .mobile-slide-name {
+      font-size: 11.5px;
+      color: var(--sheet-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mobile-slide-save-btn {
+      background: var(--sheet-btn-bg);
+      color: var(--sheet-btn-ink);
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .mobile-slide-save-btn.is-saved {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .slide-saved-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.92);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -2887,6 +3208,48 @@
       <button type="button" id="lightboxDownloadBtn" class="btn btn-primary btn-pill" style="background: #faf9f6; color: #161514; border-color: #faf9f6;">
         ดาวน์โหลดรูปนี้
       </button>
+    </div>
+  </div>
+
+  <!-- ================= MOBILE SAVE TO PHOTO ALBUM SHEET ================= -->
+  <div id="mobileSaveModal" class="mobile-save-backdrop" role="dialog" aria-modal="true" aria-labelledby="mobileSaveTitle" hidden>
+    <div id="mobileSaveSheet" class="mobile-save-sheet" data-sheet-theme="dark">
+      <div id="mobileSheetHandleArea" class="mobile-sheet-handle-area" aria-hidden="true">
+        <div class="mobile-sheet-handle"></div>
+      </div>
+
+      <div class="mobile-save-header">
+        <div>
+          <h3 id="mobileSaveTitle">บันทึกรูปลงอัลบั้มในโทรศัพท์</h3>
+          <p id="mobileSaveSubtitle">เซฟรูปภาพเข้าแอปรูปภาพในเครื่องโดยตรง ไม่ต้องแตกไฟล์</p>
+        </div>
+        <div class="mobile-sheet-top-btns">
+          <button type="button" id="mobileSheetThemeBtn" class="sheet-pill-ctrl" aria-label="สลับโหมดสีหน้าต่าง">
+            โหมดสว่าง
+          </button>
+          <button type="button" id="mobileSaveCloseBtn" class="sheet-pill-ctrl">
+            ปิด ✕
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileDeviceGuide" class="mobile-device-guide">
+        <span class="mobile-device-guide-dot" aria-hidden="true"></span>
+        <span id="mobileDeviceGuideText">แตะปุ่มบันทึกด้านล่าง แล้วเลือก "บันทึกรูปภาพ (Save Images)" เพื่อเซฟลงอัลบั้มในเครื่อง</span>
+      </div>
+
+      <div id="mobileProgressWrap" class="mobile-progress-wrap" hidden>
+        <div class="mobile-progress-meta">
+          <span id="mobileProgressLabel">กำลังเตรียมรูปภาพ...</span>
+          <span id="mobileProgressPct">0%</span>
+        </div>
+        <div class="mobile-progress-track">
+          <div id="mobileProgressFill" class="mobile-progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="mobileSaveActions" class="mobile-save-actions"></div>
+      <div id="mobileSaveGrid" class="mobile-save-grid"></div>
     </div>
   </div>
 
@@ -4489,7 +4852,7 @@
             c: album.coverDriveId || '',
             f: album.folderId || '',
             s: [d.layout || 'masonry', d.cols || '3', d.frame || 'polaroid', d.corner || 'glow', d.tilt ? 1 : 0, d.bw ? 1 : 0, d.watermark !== false ? 1 : 0, d.caption ? 1 : 0, d.enFont || 'space'],
-            p: album.folderId ? [] : album.photos.slice(0, 60).map(ph => ph.driveId)
+            p: album.folderId ? [] : album.photos.map(ph => ph.driveId)
           };
           const json = JSON.stringify(compact);
           const utf8Bytes = new TextEncoder().encode(json);
@@ -4693,7 +5056,23 @@
         lightboxImg: document.getElementById('lightboxImg'),
         lightboxSelectBtn: document.getElementById('lightboxSelectBtn'),
         lightboxDownloadSocialBtn: document.getElementById('lightboxDownloadSocialBtn'),
-        lightboxDownloadBtn: document.getElementById('lightboxDownloadBtn')
+        lightboxDownloadBtn: document.getElementById('lightboxDownloadBtn'),
+
+        mobileSaveModal: document.getElementById('mobileSaveModal'),
+        mobileSaveSheet: document.getElementById('mobileSaveSheet'),
+        mobileSheetHandleArea: document.getElementById('mobileSheetHandleArea'),
+        mobileSheetThemeBtn: document.getElementById('mobileSheetThemeBtn'),
+        mobileDeviceGuide: document.getElementById('mobileDeviceGuide'),
+        mobileDeviceGuideText: document.getElementById('mobileDeviceGuideText'),
+        mobileProgressWrap: document.getElementById('mobileProgressWrap'),
+        mobileProgressLabel: document.getElementById('mobileProgressLabel'),
+        mobileProgressPct: document.getElementById('mobileProgressPct'),
+        mobileProgressFill: document.getElementById('mobileProgressFill'),
+        mobileSaveTitle: document.getElementById('mobileSaveTitle'),
+        mobileSaveSubtitle: document.getElementById('mobileSaveSubtitle'),
+        mobileSaveCloseBtn: document.getElementById('mobileSaveCloseBtn'),
+        mobileSaveActions: document.getElementById('mobileSaveActions'),
+        mobileSaveGrid: document.getElementById('mobileSaveGrid')
       };
 
       function applyCardDesignToDOM() {
@@ -4903,6 +5282,283 @@
         return state.albums[0];
       }
 
+      // Detect Smartphone / Touch Mobile Browser (Save directly to Photo Album instead of Files/.ZIP)
+      let activeMobilePreviewUrls = [];
+
+      function isMobilePhoneDevice() {
+        try {
+          if (window.matchMedia && window.matchMedia('(max-width: 860px) and (pointer: coarse)').matches) {
+            return true;
+          }
+          return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function getDefaultAlbumBtnLabel() {
+        return isMobilePhoneDevice() ? 'บันทึกรูปทั้งอัลบั้มลงเครื่อง' : 'ดาวน์โหลดทั้งอัลบั้ม (.ZIP)';
+      }
+
+      async function preparePhotoFileForMobileAlbum(blob, filename) {
+        let outBlob = blob;
+        let outMime = (blob && blob.type) ? blob.type : 'image/jpeg';
+        let outName = filename || 'IMG_001.jpg';
+
+        // Ensure JPEG or PNG so iOS/Android Camera Roll ("Save Image") always accepts the file
+        if (outMime !== 'image/jpeg' && outMime !== 'image/png') {
+          try {
+            outBlob = await resizeBlobToMaxDimension(blob, 8192, 0.95, false);
+            outMime = 'image/jpeg';
+            outName = outName.replace(/\.[a-zA-Z0-9]{3,4}$/, '') + '.jpg';
+          } catch (_) {
+            outMime = 'image/jpeg';
+          }
+        }
+        const fileObj = new File([outBlob], outName, { type: outMime, lastModified: Date.now() });
+        return { file: fileObj, blob: outBlob, name: outName };
+      }
+
+      function canUseNativeFileShare(files) {
+        try {
+          return Boolean(
+            typeof navigator !== 'undefined' &&
+            typeof navigator.share === 'function' &&
+            typeof navigator.canShare === 'function' &&
+            navigator.canShare({ files: files })
+          );
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function getSmartMobileDeviceGuide(supportsShare) {
+        const ua = (typeof navigator !== 'undefined' && navigator.userAgent) ? navigator.userAgent : '';
+        const isInAppChat = /Line\/|FBAN|FBAV|Instagram/i.test(ua);
+        const isIOS = /iPhone|iPad|iPod/i.test(ua);
+        const isAndroid = /Android/i.test(ua);
+
+        if (isInAppChat && !supportsShare) {
+          return 'ตรวจพบเบราว์เซอร์ในแอปแชท (LINE/FB/IG): แตะค้างที่รูปภาพในแถบเลื่อนด้านล่าง 1 วินาที แล้วเลือก "บันทึกรูปภาพ" เพื่อเซฟเข้าอัลบั้ม';
+        }
+        if (isIOS) {
+          return supportsShare
+            ? 'iPhone / iPad: แตะปุ่มบันทึกด้านล่าง แล้วเลือกเมนู "บันทึกรูปภาพ (Save Images)" เพื่อเซฟทุกรูปเข้าแอปรูปภาพรวดเดียว'
+            : 'iPhone / iPad: แตะค้างที่รูปภาพด้านล่าง แล้วเลือก "เพิ่มไปยังแอปรูปภาพ (Save to Photos)"';
+        }
+        if (isAndroid) {
+          return supportsShare
+            ? 'Android: แตะปุ่มบันทึกด้านล่างเพื่อเซฟลงแกลเลอรี / Google Photos หรือเลื่อนดูรูปแล้วกดเซฟทีละใบ'
+            : 'Android: แตะค้างที่รูปภาพในแถบเลื่อนด้านล่าง แล้วเลือก "ดาวน์โหลดรูปภาพ / บันทึกรูปภาพ"';
+        }
+        return supportsShare
+          ? 'แตะปุ่มบันทึกด้านล่าง แล้วเลือก "บันทึกรูปภาพ (Save Images)" เพื่อเซฟลงอัลบั้มในเครื่องโดยตรง'
+          : 'เลื่อนซ้าย-ขวาแล้วแตะค้างที่รูปภาพเพื่อบันทึกลงอัลบั้มรูปภาพในเครื่อง';
+      }
+
+      function closeMobileSaveSheet() {
+        if (els.mobileSaveModal) els.mobileSaveModal.hidden = true;
+        if (els.mobileSaveSheet) {
+          els.mobileSaveSheet.style.transform = '';
+          els.mobileSaveSheet.classList.remove('is-dragging');
+        }
+        if (els.mobileProgressWrap) els.mobileProgressWrap.hidden = true;
+        if (els.mobileProgressFill) els.mobileProgressFill.style.width = '0%';
+        if (els.mobileSaveActions) els.mobileSaveActions.innerHTML = '';
+        if (els.mobileSaveGrid) els.mobileSaveGrid.innerHTML = '';
+        activeMobilePreviewUrls.forEach((u) => {
+          try { URL.revokeObjectURL(u); } catch (_) {}
+        });
+        activeMobilePreviewUrls = [];
+      }
+
+      function showMobilePreparingProgress(totalCount, isSocial2048) {
+        if (!els.mobileSaveModal) return;
+        closeMobileSaveSheet();
+        els.mobileSaveTitle.textContent = isSocial2048
+          ? 'กำลังเตรียมรูป Social (2048px) ลงอัลบั้ม...'
+          : 'กำลังเตรียมรูปภาพลงอัลบั้ม...';
+        els.mobileSaveSubtitle.textContent = 'เตรียมไฟล์ภาพสำหรับเซฟเข้าแอปรูปภาพในโทรศัพท์โดยตรง';
+        if (els.mobileDeviceGuideText) {
+          els.mobileDeviceGuideText.textContent = 'รอสักครู่ ระบบกำลังดึงไฟล์ภาพความคมชัดสูงทั้งหมดโดยไม่จำกัดจำนวนรูป';
+        }
+        if (els.mobileProgressWrap) {
+          els.mobileProgressWrap.hidden = false;
+          els.mobileProgressLabel.textContent = 'เตรียมรูปภาพ 0 / ' + totalCount;
+          els.mobileProgressPct.textContent = '0%';
+          els.mobileProgressFill.style.width = '0%';
+        }
+        els.mobileSaveModal.hidden = false;
+      }
+
+      function updateMobilePreparingProgress(doneCount, totalCount) {
+        if (!els.mobileProgressWrap) return;
+        const pct = totalCount > 0 ? Math.min(100, Math.round((doneCount / totalCount) * 100)) : 0;
+        if (els.mobileProgressLabel) {
+          els.mobileProgressLabel.textContent = 'เตรียมรูปภาพ ' + doneCount + ' / ' + totalCount;
+        }
+        if (els.mobileProgressPct) {
+          els.mobileProgressPct.textContent = pct + '%';
+        }
+        if (els.mobileProgressFill) {
+          els.mobileProgressFill.style.width = pct + '%';
+        }
+      }
+
+      function openMobileSaveSheet(preparedItems) {
+        if (!els.mobileSaveModal || !preparedItems || !preparedItems.length) return;
+        closeMobileSaveSheet();
+
+        const files = preparedItems.map(it => it.file);
+        const canShareAllAtOnce = canUseNativeFileShare(files);
+        const canShareSingle = canShareAllAtOnce || canUseNativeFileShare([files[0]]);
+
+        els.mobileSaveTitle.textContent = preparedItems.length === 1
+          ? 'พร้อมบันทึกรูปลงอัลบั้มโทรศัพท์'
+          : 'พร้อมบันทึกทั้ง ' + preparedItems.length + ' รูปลงอัลบั้มโทรศัพท์';
+        els.mobileSaveSubtitle.textContent = 'เลื่อนซ้าย-ขวาเพื่อดูพรีวิวรูปภาพ หรือกดปุ่มบันทึกเข้าแอปรูปภาพทันที';
+
+        if (els.mobileDeviceGuideText) {
+          els.mobileDeviceGuideText.textContent = getSmartMobileDeviceGuide(canShareSingle);
+        }
+
+        const slideSaveStates = [];
+
+        if (canShareAllAtOnce) {
+          // Unlimited 1-tap Save All button (no photo count cap!)
+          const mainBtn = document.createElement('button');
+          mainBtn.type = 'button';
+          mainBtn.className = 'mobile-save-main-btn';
+          const defaultBtnText = files.length === 1
+            ? 'บันทึกรูปนี้ลงอัลบั้มรูปภาพ'
+            : 'บันทึกรูปทั้งหมด (' + files.length + ' รูป) ลงอัลบั้ม';
+          mainBtn.textContent = defaultBtnText;
+          mainBtn.addEventListener('click', async () => {
+            try {
+              await navigator.share({ files: files });
+              mainBtn.textContent = defaultBtnText + ' — บันทึกแล้ว ✓';
+              mainBtn.classList.add('is-saved');
+              slideSaveStates.forEach((markFn) => markFn());
+            } catch (err) {
+              if (err && err.name === 'AbortError') return;
+            }
+          });
+          els.mobileSaveActions.appendChild(mainBtn);
+        } else if (canShareSingle) {
+          // Adaptive fallback ONLY if the mobile OS itself rejected the giant combined array buffer
+          let maxOsBatch = Math.min(files.length, 50);
+          while (maxOsBatch > 1 && !canUseNativeFileShare(files.slice(0, maxOsBatch))) {
+            maxOsBatch = Math.floor(maxOsBatch / 2);
+          }
+          for (let start = 0; start < files.length; start += maxOsBatch) {
+            const slice = files.slice(start, start + maxOsBatch);
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'mobile-save-main-btn';
+            const labelTxt = 'บันทึกรูปที่ ' + (start + 1) + '–' + (start + slice.length) + ' ลงอัลบั้ม';
+            btn.textContent = labelTxt;
+            const sIdx = start;
+            const eIdx = start + slice.length;
+            btn.addEventListener('click', async () => {
+              try {
+                await navigator.share({ files: slice });
+                btn.textContent = labelTxt + ' — บันทึกแล้ว ✓';
+                btn.classList.add('is-saved');
+                for (let k = sIdx; k < eIdx; k++) {
+                  if (slideSaveStates[k]) slideSaveStates[k]();
+                }
+              } catch (err) {
+                if (err && err.name === 'AbortError') return;
+              }
+            });
+            els.mobileSaveActions.appendChild(btn);
+          }
+        }
+
+        // Render Horizontal Swipeable Carousel for all photos (unlimited!)
+        els.mobileSaveGrid.classList.toggle('single-item', preparedItems.length === 1);
+        preparedItems.forEach((item, idx) => {
+          const previewUrl = URL.createObjectURL(item.blob);
+          activeMobilePreviewUrls.push(previewUrl);
+
+          const slide = document.createElement('div');
+          slide.className = 'mobile-save-item';
+
+          const savedBadge = document.createElement('span');
+          savedBadge.className = 'slide-saved-badge';
+          savedBadge.textContent = 'เซฟแล้ว ✓';
+          savedBadge.hidden = true;
+
+          const img = document.createElement('img');
+          img.src = previewUrl;
+          img.alt = item.name;
+          img.loading = idx < 4 ? 'eager' : 'lazy';
+
+          const footer = document.createElement('div');
+          footer.className = 'mobile-slide-footer';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'mobile-slide-name';
+          nameSpan.textContent = (idx + 1) + '/' + preparedItems.length + ' • ' + item.name;
+          footer.appendChild(nameSpan);
+
+          let singleBtn = null;
+          if (canShareSingle) {
+            singleBtn = document.createElement('button');
+            singleBtn.type = 'button';
+            singleBtn.className = 'mobile-slide-save-btn';
+            singleBtn.textContent = 'เซฟรูปนี้';
+            singleBtn.addEventListener('click', async () => {
+              try {
+                await navigator.share({ files: [item.file] });
+                markSlideSaved();
+              } catch (err) {
+                if (err && err.name === 'AbortError') return;
+              }
+            });
+            footer.appendChild(singleBtn);
+          }
+
+          function markSlideSaved() {
+            savedBadge.hidden = false;
+            if (singleBtn) {
+              singleBtn.textContent = 'เซฟแล้ว ✓';
+              singleBtn.classList.add('is-saved');
+            }
+          }
+          slideSaveStates.push(markSlideSaved);
+
+          slide.appendChild(savedBadge);
+          slide.appendChild(img);
+          slide.appendChild(footer);
+          els.mobileSaveGrid.appendChild(slide);
+        });
+
+        els.mobileSaveModal.hidden = false;
+      }
+
+      async function savePreparedPhotosToMobileAlbum(preparedItems) {
+        if (!preparedItems || !preparedItems.length) return;
+        const files = preparedItems.map(it => it.file);
+
+        // Try direct 1-step native Share-to-Photos sheet with ALL files (no photo count limit!)
+        if (canUseNativeFileShare(files)) {
+          try {
+            await navigator.share({ files: files });
+            closeMobileSaveSheet();
+            return;
+          } catch (err) {
+            if (err && err.name === 'AbortError') {
+              closeMobileSaveSheet();
+              return;
+            }
+            // Fall through to 1-tap Mobile Save Sheet when network fetch exceeded transient user activation
+          }
+        }
+
+        openMobileSaveSheet(preparedItems);
+      }
+
       // Download Single Photo & Batch ZIP via Google Apps Script Base64 (Zero CORS issues)
       function triggerBlobSave(blob, filename) {
         const blobUrl = URL.createObjectURL(blob);
@@ -4931,7 +5587,12 @@
           const media = await getOrFetchPhotoMedia(photo);
           if (media && media.blob) {
             const filename = ensureExtension(media.name || photo.name, media.mimeType, 0);
-            triggerBlobSave(media.blob, filename);
+            if (isMobilePhoneDevice()) {
+              const prepared = await preparePhotoFileForMobileAlbum(media.blob, filename);
+              await savePreparedPhotosToMobileAlbum([prepared]);
+            } else {
+              triggerBlobSave(media.blob, filename);
+            }
           }
         } finally {
           if (btnEl) btnEl.disabled = false;
@@ -4943,6 +5604,30 @@
         buttonEl.disabled = true;
 
         try {
+          // On Mobile: Prepare ALL image files (unlimited!) with live Progress Bar & save directly to Phone Photo Album
+          if (isMobilePhoneDevice()) {
+            showMobilePreparingProgress(photos.length, false);
+            const preparedList = [];
+            for (let i = 0; i < photos.length; i++) {
+              labelEl.textContent = 'กำลังเตรียมรูป (' + (i + 1) + '/' + photos.length + ')...';
+              const ph = photos[i];
+              const media = await getOrFetchPhotoMedia(ph);
+              if (media && media.blob) {
+                const fname = ensureExtension(media.name || ph.name, media.mimeType, i);
+                preparedList.push(await preparePhotoFileForMobileAlbum(media.blob, fname));
+              }
+              updateMobilePreparingProgress(i + 1, photos.length);
+            }
+            if (preparedList.length > 0) {
+              labelEl.textContent = 'พร้อมบันทึกลงอัลบั้ม ✓';
+              await savePreparedPhotosToMobileAlbum(preparedList);
+            } else {
+              closeMobileSaveSheet();
+              labelEl.textContent = 'ดึงไฟล์ไม่สำเร็จ กรุณาตรวจสอบสิทธิ์ไฟล์';
+            }
+            return;
+          }
+
           if (window.JSZip) {
             const zip = new window.JSZip();
             const usedNames = new Set();
@@ -5028,7 +5713,12 @@
         try {
           const socialMedia = await getOrCreateSocial2048Media(photo, 0);
           if (socialMedia && socialMedia.blob) {
-            triggerBlobSave(socialMedia.blob, socialMedia.name);
+            if (isMobilePhoneDevice()) {
+              const prepared = await preparePhotoFileForMobileAlbum(socialMedia.blob, socialMedia.name);
+              await savePreparedPhotosToMobileAlbum([prepared]);
+            } else {
+              triggerBlobSave(socialMedia.blob, socialMedia.name);
+            }
           }
         } finally {
           if (btnEl) {
@@ -5043,6 +5733,28 @@
         buttonEl.disabled = true;
 
         try {
+          // On Mobile: Resize ALL photos to 2048px (unlimited!) with live Progress Bar & save to Phone Photo Album
+          if (isMobilePhoneDevice()) {
+            showMobilePreparingProgress(photos.length, true);
+            const preparedList = [];
+            for (let i = 0; i < photos.length; i++) {
+              labelEl.textContent = 'กำลังย่อ 2048px (' + (i + 1) + '/' + photos.length + ')...';
+              const socialMedia = await getOrCreateSocial2048Media(photos[i], i);
+              if (socialMedia && socialMedia.blob) {
+                preparedList.push(await preparePhotoFileForMobileAlbum(socialMedia.blob, socialMedia.name));
+              }
+              updateMobilePreparingProgress(i + 1, photos.length);
+            }
+            if (preparedList.length > 0) {
+              labelEl.textContent = 'พร้อมบันทึกลงอัลบั้ม ✓';
+              await savePreparedPhotosToMobileAlbum(preparedList);
+            } else {
+              closeMobileSaveSheet();
+              labelEl.textContent = 'ดึงไฟล์ไม่สำเร็จ กรุณาตรวจสอบสิทธิ์ไฟล์';
+            }
+            return;
+          }
+
           if (window.JSZip) {
             const zip = new window.JSZip();
             const usedNames = new Set();
@@ -6255,7 +6967,7 @@
           album.title,
           els.downloadAlbumBtn,
           els.downloadAlbumLabel,
-          'ดาวน์โหลดทั้งอัลบั้ม (.ZIP)'
+          getDefaultAlbumBtnLabel()
         );
       });
 
@@ -6898,7 +7610,68 @@
         });
       }
 
+      if (els.mobileSaveCloseBtn) {
+        els.mobileSaveCloseBtn.addEventListener('click', closeMobileSaveSheet);
+      }
+
+      if (els.mobileSheetThemeBtn && els.mobileSaveSheet) {
+        els.mobileSheetThemeBtn.addEventListener('click', () => {
+          const cur = els.mobileSaveSheet.getAttribute('data-sheet-theme') || 'dark';
+          const next = cur === 'dark' ? 'light' : 'dark';
+          els.mobileSaveSheet.setAttribute('data-sheet-theme', next);
+          els.mobileSheetThemeBtn.textContent = next === 'dark' ? 'โหมดสว่าง' : 'โหมดมืด';
+        });
+      }
+
+      // iOS Drag-Handle Swipe-Down Gesture to Dismiss Mobile Save Sheet
+      if (els.mobileSheetHandleArea && els.mobileSaveSheet) {
+        let dragStartY = 0;
+        let currentDragY = 0;
+        let dragging = false;
+
+        const onDragStart = (e) => {
+          if (!e.touches || !e.touches[0]) return;
+          dragStartY = e.touches[0].clientY;
+          currentDragY = 0;
+          dragging = true;
+          els.mobileSaveSheet.classList.add('is-dragging');
+        };
+
+        const onDragMove = (e) => {
+          if (!dragging || !e.touches || !e.touches[0]) return;
+          const dy = Math.max(0, e.touches[0].clientY - dragStartY);
+          currentDragY = dy;
+          els.mobileSaveSheet.style.transform = 'translateY(' + dy + 'px)';
+        };
+
+        const onDragEnd = () => {
+          if (!dragging) return;
+          dragging = false;
+          els.mobileSaveSheet.classList.remove('is-dragging');
+          if (currentDragY > 75) {
+            closeMobileSaveSheet();
+          } else {
+            els.mobileSaveSheet.style.transform = '';
+          }
+          currentDragY = 0;
+        };
+
+        els.mobileSheetHandleArea.addEventListener('touchstart', onDragStart, { passive: true });
+        els.mobileSheetHandleArea.addEventListener('touchmove', onDragMove, { passive: true });
+        els.mobileSheetHandleArea.addEventListener('touchend', onDragEnd, { passive: true });
+      }
+
+      if (els.mobileSaveModal) {
+        els.mobileSaveModal.addEventListener('click', (e) => {
+          if (e.target === els.mobileSaveModal) closeMobileSaveSheet();
+        });
+      }
+
       document.addEventListener('keydown', (e) => {
+        if (els.mobileSaveModal && !els.mobileSaveModal.hidden) {
+          if (e.key === 'Escape') closeMobileSaveSheet();
+          return;
+        }
         if (!els.lightboxModal.hidden) {
           if (e.key === 'Escape') closeLightbox();
           else if (e.key === 'ArrowLeft') els.lightboxPrevBtn.click();
@@ -7008,6 +7781,9 @@
           state.cardDesign = Object.assign({}, state.cardDesign, state.clientLockedAlbum.sharedDesign);
         }
         applyCardDesignToDOM();
+        if (els.downloadAlbumLabel) {
+          els.downloadAlbumLabel.textContent = getDefaultAlbumBtnLabel();
+        }
 
         // Pre-warm first 8 thumbnails immediately in parallel while DOM mounts
         const initialTarget = state.clientLockedAlbum || state.albums[0];
