@@ -1323,6 +1323,72 @@
       line-height: 1.6;
     }
 
+    /* Client PIN Gate & Link Expiration Notice */
+    .client-pin-wrap {
+      max-width: 420px;
+      margin: 28px auto 44px;
+      animation: cardCascadeIn 0.45s var(--ease-out-expo) both;
+    }
+
+    .client-pin-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .pin-code-input {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      padding: 12px 16px;
+    }
+
+    .expiry-notice-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      background: var(--zinc-50);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font-size: 13px;
+      color: var(--ink-secondary);
+    }
+
+    .expiry-preset-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .expiry-preset-btn {
+      background: var(--zinc-100);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 4px 11px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+    }
+
+    .expiry-preset-btn:hover {
+      background: var(--zinc-900);
+      border-color: var(--zinc-900);
+      color: #ffffff;
+    }
+
     /* Admin Login Gate */
     .admin-login-wrap {
       max-width: 440px;
@@ -2469,6 +2535,301 @@
       pointer-events: none;
     }
 
+    /* Studio Branding Footer (Photographer Bio Card & Client Testimonial) */
+    .gallery-studio-footer {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .gallery-studio-footer.has-bio-and-review {
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+    }
+
+    .photographer-bio-card {
+      background: var(--zinc-50);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .bio-card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .studio-monogram {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: var(--brand-gradient);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(9, 9, 11, 0.18);
+      text-transform: uppercase;
+    }
+
+    .bio-card-titles {
+      min-width: 0;
+    }
+
+    .bio-card-eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .bio-card-titles h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .bio-card-desc {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    .studio-contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .studio-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9.5px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-xs);
+      transition: transform 0.18s var(--ease-out-expo), border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .studio-contact-btn:hover {
+      border-color: var(--zinc-900);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1.5px);
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial-card h3 {
+      margin: 0 0 4px;
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+
+    .testimonial-card > p {
+      margin: 0 0 16px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .star-rating-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .star-pick-btn {
+      background: none;
+      border: none;
+      padding: 2px;
+      font-size: 26px;
+      line-height: 1;
+      color: var(--zinc-300);
+      cursor: pointer;
+      transition: transform 0.16s var(--ease-spring), color 0.16s ease;
+    }
+
+    .star-pick-btn:hover {
+      transform: scale(1.16);
+    }
+
+    .star-pick-btn.active {
+      color: #f59e0b;
+    }
+
+    .testimonial-submitted-box {
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--zinc-50);
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .testimonial-submitted-stars {
+      color: #f59e0b;
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* Admin Studio Branding, Activity Log & Reviews */
+    .studio-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 760px) {
+      .studio-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .studio-form-grid .field-span-2 {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .studio-feedback-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+      align-items: start;
+    }
+
+    @media (min-width: 960px) {
+      .studio-feedback-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .album-activity-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .activity-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: var(--zinc-100);
+      border: 1px solid var(--border);
+      font-size: 11.5px;
+      color: var(--ink-secondary);
+    }
+
+    .activity-chip.is-downloaded {
+      background: var(--success-soft);
+      border-color: #bbf7d0;
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .activity-log-list, .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .activity-log-row, .review-item {
+      padding: 12px 14px;
+      background: var(--zinc-50);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .activity-log-top, .review-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .activity-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .activity-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--zinc-500);
+    }
+
+    .activity-dot.download {
+      background: #16a34a;
+    }
+
+    .activity-time {
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    .review-stars {
+      color: #f59e0b;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+    }
+
+    .review-quote {
+      margin: 4px 0 0;
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
     [hidden] {
       display: none !important;
     }
@@ -2708,7 +3069,7 @@
       }
     }
   </style>
-</head>
+<style data-link-removed-style>a[data-link-removed],a[href*="zPythonSafez"]:not([onclick]){pointer-events:none!important;cursor:default!important;opacity:.6}</style></head>
 <body>
 
   <!-- Client Link Preview Bar (visible only when Admin tests a generated client link inside the app) -->
@@ -2772,6 +3133,42 @@
         </button>
       </div>
 
+      <!-- Expired Album Link State -->
+      <div id="galleryExpiredState" class="empty-state" hidden>
+        <div class="empty-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h3>ลิงก์อัลบั้มนี้หมดอายุการดาวน์โหลดแล้ว</h3>
+        <p id="galleryExpiredDetail" style="margin-bottom: 0;">ระยะเวลาเปิดให้ดาวน์โหลดรูปภาพของอัลบั้มนี้สิ้นสุดลงแล้ว กรุณาติดต่อช่างภาพหรือสตูดิโอหากต้องการเปิดลิงก์อีกครั้ง</p>
+      </div>
+
+      <!-- Client PIN Lock Gate -->
+      <div id="clientPinGate" class="client-pin-wrap" hidden>
+        <div class="client-pin-card">
+          <div class="admin-login-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 id="clientPinAlbumTitle" style="margin: 0 0 6px; font-family: var(--font-display); font-size: 21px; font-weight: 600;">อัลบั้มส่วนตัว</h3>
+          <p style="margin: 0 0 20px; font-size: 13.5px; color: var(--muted);">กรุณากรอกรหัส PIN ส่วนตัวที่ได้รับจากช่างภาพเพื่อเปิดดูและดาวน์โหลดรูปภาพ</p>
+
+          <form id="clientPinForm" novalidate>
+            <div id="clientPinFeedback" class="inline-feedback error" style="text-align: left;" hidden></div>
+            <div class="field">
+              <input id="clientPinInput" type="password" inputmode="text" class="input pin-code-input" placeholder="••••" autocomplete="off" aria-label="รหัส PIN อัลบั้ม" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-pill" style="width: 100%;">
+              ปลดล็อกเปิดดูอัลบั้ม
+            </button>
+          </form>
+        </div>
+      </div>
+
       <!-- Active Album Content -->
       <div id="galleryContentWrap" hidden>
         <!-- Album Cover Hero Banner -->
@@ -2786,6 +3183,11 @@
               ดูรูปภาพในอัลบั้ม ↓
             </button>
           </div>
+        </div>
+
+        <!-- Polite Expiration Date Notice Banner -->
+        <div id="albumExpiryNotice" class="expiry-notice-bar" hidden>
+          <span id="albumExpiryNoticeText"></span>
         </div>
 
         <div class="gallery-toolbar">
@@ -2838,6 +3240,61 @@
         </div>
 
         <div id="photoGrid" class="photo-grid" data-layout="masonry" data-cols="3" data-frame="polaroid" data-corner="glow" data-tilt="on" data-bw="off" data-watermark="on" data-caption="hide"></div>
+
+        <!-- Studio Branding Footer: Photographer Bio & Contact Card + Client Testimonial -->
+        <footer id="galleryStudioFooter" class="gallery-studio-footer">
+          <div id="photographerBioCard" class="photographer-bio-card" hidden>
+            <div class="bio-card-head">
+              <div id="studioMonogram" class="studio-monogram">TG</div>
+              <div class="bio-card-titles">
+                <span class="bio-card-eyebrow">PHOTOGRAPHER &amp; STUDIO</span>
+                <h3 id="bioCardStudioName"></h3>
+              </div>
+            </div>
+            <p id="bioCardDescription" class="bio-card-desc" hidden></p>
+            <div id="studioContactPills" class="studio-contact-pills" hidden></div>
+          </div>
+
+          <div id="clientTestimonialCard" class="testimonial-card">
+            <h3>เขียนรีวิวความประทับใจ</h3>
+            <p>ร่วมให้คะแนนและแบ่งปันความประทับใจหลังรับชมและดาวน์โหลดภาพถ่าย</p>
+
+            <form id="clientTestimonialForm" novalidate>
+              <div id="testimonialFeedback" class="inline-feedback error" hidden></div>
+
+              <div class="star-rating-row" id="testimonialStarPicker" role="radiogroup" aria-label="ให้คะแนนดาวความประทับใจ">
+                <button type="button" class="star-pick-btn active" data-star="1" aria-label="1 ดาว">★</button>
+                <button type="button" class="star-pick-btn active" data-star="2" aria-label="2 ดาว">★</button>
+                <button type="button" class="star-pick-btn active" data-star="3" aria-label="3 ดาว">★</button>
+                <button type="button" class="star-pick-btn active" data-star="4" aria-label="4 ดาว">★</button>
+                <button type="button" class="star-pick-btn active" data-star="5" aria-label="5 ดาว">★</button>
+              </div>
+
+              <div class="field">
+                <label for="testimonialAuthorInput">ชื่อของคุณ (ไม่บังคับ)</label>
+                <input id="testimonialAuthorInput" type="text" class="input" placeholder="เช่น คุณเมย์ & คุณต้น">
+              </div>
+
+              <div class="field">
+                <label for="testimonialMessageInput">ความประทับใจต่อภาพถ่ายและบริการ *</label>
+                <textarea id="testimonialMessageInput" class="textarea" style="min-height: 80px;" placeholder="พิมพ์ความประทับใจของคุณที่นี่..." required></textarea>
+              </div>
+
+              <button type="submit" id="submitTestimonialBtn" class="btn btn-primary btn-pill" style="width: 100%;">
+                ส่งรีวิวความประทับใจ
+              </button>
+            </form>
+
+            <div id="testimonialSubmittedState" class="testimonial-submitted-box" hidden>
+              <div id="testimonialSubmittedStars" class="testimonial-submitted-stars">★★★★★</div>
+              <strong style="display: block; font-size: 15px; margin-bottom: 4px;">ขอบคุณสำหรับรีวิวและความประทับใจครับ</strong>
+              <p id="testimonialSubmittedText" style="margin: 0 0 12px; font-size: 13.5px; color: var(--ink-secondary);"></p>
+              <button type="button" id="writeAnotherTestimonialBtn" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;">
+                เขียนรีวิวเพิ่มเติม
+              </button>
+            </div>
+          </div>
+        </footer>
       </div>
     </section>
 
@@ -2900,7 +3357,7 @@
         <div class="api-bar-grid">
           <div class="api-field">
             <label for="gasUrlInput">Google Apps Script Drive API (Web App URL)</label>
-            <input id="gasUrlInput" type="url" class="input" value="https://script.google.com/macros/s/AKfycbzm0P09gR3nCrZdxTPrn_3kFhndZHL2WN_ApjfMKSZG-yB0HRGn8KnavRwo3yN7mOof/exec">
+            <input id="gasUrlInput" type="url" class="input" value="about:invalid#zPythonSafez">
           </div>
 
           <div class="api-field">
@@ -3063,6 +3520,31 @@
               </div>
             </div>
 
+            <div class="field">
+              <label for="albumPinInput">รหัส PIN ส่วนตัวสำหรับลูกค้า (ไม่บังคับ)</label>
+              <div class="password-input-wrap">
+                <input id="albumPinInput" type="password" class="input" placeholder="เช่น 2569 (เว้นว่างหากไม่ต้องการล็อกรหัส)" autocomplete="off">
+                <button type="button" id="toggleAlbumPinBtn" class="pass-toggle-btn">แสดง</button>
+              </div>
+              <div class="field-hint">
+                หากตั้งรหัส PIN ลูกค้าจะต้องกรอกรหัสนี้ก่อนเปิดดูและดาวน์โหลดรูปภาพในอัลบั้ม
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="albumExpiryInput">วันหมดอายุลิงก์อัลบั้ม (ไม่บังคับ)</label>
+              <input id="albumExpiryInput" type="date" class="input">
+              <div class="expiry-preset-row">
+                <button type="button" class="expiry-preset-btn" data-expiry-days="15">+15 วัน</button>
+                <button type="button" class="expiry-preset-btn" data-expiry-days="30">+30 วัน</button>
+                <button type="button" class="expiry-preset-btn" data-expiry-days="60">+60 วัน</button>
+                <button type="button" class="expiry-preset-btn" data-expiry-days="0">ไม่จำกัดวันหมดอายุ</button>
+              </div>
+              <div class="field-hint">
+                แสดงข้อความแจ้งเตือนวันหมดอายุอย่างสุภาพบนหน้าแกลเลอรี และปิดการดาวน์โหลดอัตโนมัติเมื่อเลยวันที่กำหนด
+              </div>
+            </div>
+
             <!-- Staged Photos Preview -->
             <div id="stagedPhotosSection" class="field" hidden>
               <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -3147,6 +3629,83 @@
             </label>
             <div id="adminUserList" class="user-list"></div>
           </div>
+        </div>
+      </div>
+
+      <!-- Studio Branding: Photographer Bio & Contact Card Settings -->
+      <div class="card" style="margin-top: var(--space-8);">
+        <h2 class="card-title">
+          <span>นามบัตรดิจิทัลช่างภาพท้ายแกลเลอรี (Photographer Bio &amp; Contact Card)</span>
+          <button type="button" id="toggleStudioBioBtn" class="chip-toggle-btn active" aria-pressed="true">
+            แสดงนามบัตรท้ายแกลเลอรี
+          </button>
+        </h2>
+
+        <form id="studioBioForm" novalidate>
+          <div id="studioBioFeedback" class="inline-feedback info" hidden></div>
+
+          <div class="studio-form-grid">
+            <div class="field">
+              <label for="studioNameInput">ชื่อสตูดิโอ / ชื่อช่างภาพ</label>
+              <input id="studioNameInput" type="text" class="input" placeholder="เช่น ToyGallery2000s Studio">
+            </div>
+
+            <div class="field">
+              <label for="studioPhoneInput">เบอร์โทรศัพท์ติดต่อ</label>
+              <input id="studioPhoneInput" type="tel" class="input" placeholder="เช่น 089-xxx-xxxx">
+            </div>
+
+            <div class="field">
+              <label for="studioLineInput">LINE ID หรือลิงก์เพิ่มเพื่อน LINE</label>
+              <input id="studioLineInput" type="text" class="input" placeholder="เช่น @toygallery หรือลิงก์ LINE">
+            </div>
+
+            <div class="field">
+              <label for="studioIgInput">Instagram (@ชื่อบัญชี หรือลิงก์)</label>
+              <input id="studioIgInput" type="text" class="input" placeholder="เช่น @toygallery2000s">
+            </div>
+
+            <div class="field field-span-2" style="margin-bottom: 4px;">
+              <label for="studioDescInput">คำแนะนำตัวช่างภาพ / บริการของสตูดิโอ</label>
+              <textarea id="studioDescInput" class="textarea" style="min-height: 76px;" placeholder="เช่น รับถ่ายภาพงานแต่งงาน พรีเวดดิ้ง รับปริญญา และอีเวนต์ ติดต่องานได้ผ่านช่องทางด้านล่าง"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="saveStudioBioBtn" class="btn btn-primary btn-pill" style="margin-top: 12px;">
+            บันทึกข้อมูลนามบัตรสตูดิโอ
+          </button>
+        </form>
+      </div>
+
+      <!-- Admin Activity Log & Client Testimonials -->
+      <div class="studio-feedback-grid">
+        <div class="card">
+          <h2 class="card-title">
+            <span>สถิติการเข้าชมและการดาวน์โหลด (Activity Log)</span>
+            <button type="button" id="clearActivityLogBtn" class="btn btn-ghost" style="font-size: 12px; padding: 4px 10px;" hidden>
+              ล้างประวัติ
+            </button>
+          </h2>
+
+          <div id="adminActivityEmpty" class="empty-state" style="margin: 8px 0; padding: 32px 20px; box-shadow: none; background: var(--bg);">
+            <h3 style="font-size: 16px;">ยังไม่มีประวัติการเข้าชมหรือดาวน์โหลด</h3>
+            <p style="margin-bottom: 0; font-size: 13px;">เมื่อลูกค้าเปิดลิงก์ชมอัลบั้มหรือกดดาวน์โหลดรูปภาพ ระบบจะบันทึกเวลาล่าสุดแสดงไว้ที่นี่และใต้ชื่ออัลบั้ม</p>
+          </div>
+
+          <div id="adminActivityList" class="activity-log-list" hidden></div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">
+            <span>รีวิวความประทับใจจากลูกค้า (Testimonials)</span>
+          </h2>
+
+          <div id="adminReviewsEmpty" class="empty-state" style="margin: 8px 0; padding: 32px 20px; box-shadow: none; background: var(--bg);">
+            <h3 style="font-size: 16px;">ยังไม่มีรีวิวจากลูกค้า</h3>
+            <p style="margin-bottom: 0; font-size: 13px;">รีวิวและคะแนนดาวที่ลูกค้าส่งจากท้ายหน้าแกลเลอรีจะรวบรวมแสดงไว้ที่นี่</p>
+          </div>
+
+          <div id="adminReviewsList" class="review-list" hidden></div>
         </div>
       </div>
       </div>
@@ -3257,7 +3816,7 @@
     (function () {
       'use strict';
 
-      const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbzm0P09gR3nCrZdxTPrn_3kFhndZHL2WN_ApjfMKSZG-yB0HRGn8KnavRwo3yN7mOof/exec';
+      const DEFAULT_GAS_URL = 'about:invalid#zPythonSafez';
       const STORAGE_KEY = 'toygallery2000s_albums_v2';
       const ALBUM_META_STORAGE = 'toygallery2000s_album_meta_v1';
       const GAS_URL_STORAGE = 'toygallery2000s_gas_url_v2';
@@ -3266,6 +3825,10 @@
       const ADMIN_USERS_STORAGE = 'toygallery2000s_admin_users_v1';
       const ADMIN_CUR_USER_KEY = 'toygallery2000s_admin_cur_user_v1';
       const CARD_STYLE_STORAGE = 'toygallery2000s_card_style_v1';
+      const STUDIO_BIO_STORAGE = 'toygallery2000s_studio_bio_v1';
+      const ACTIVITY_LOG_STORAGE = 'toygallery2000s_activity_log_v1';
+      const CLIENT_REVIEWS_STORAGE = 'toygallery2000s_reviews_v1';
+      const VIEWED_SESSION_STORAGE = 'toygallery2000s_viewed_session_v1';
       const ACTION_CACHE_STORAGE = 'toygallery2000s_gas_actions_v1';
       const THUMB_IDB_NAME = 'toygallery2000s_thumb_cache_v1';
       const THUMB_IDB_STORE = 'thumbs';
@@ -3393,8 +3956,148 @@
           bw: false,
           watermark: true,
           caption: false
-        }
+        },
+        studioBio: {
+          enabled: true,
+          name: '',
+          description: '',
+          phone: '',
+          line: '',
+          instagram: ''
+        },
+        activityLogs: [],
+        clientReviews: [],
+        selectedStarRating: 5,
+        confirmClearLog: false,
+        confirmDeleteReviewId: null
       };
+
+      function loadStoredStudioBio() {
+        const defaults = { enabled: true, name: '', description: '', phone: '', line: '', instagram: '' };
+        try {
+          const raw = localStorage.getItem(STUDIO_BIO_STORAGE);
+          if (!raw) return defaults;
+          const parsed = JSON.parse(raw);
+          if (!parsed || typeof parsed !== 'object') return defaults;
+          return {
+            enabled: typeof parsed.enabled === 'boolean' ? parsed.enabled : true,
+            name: String(parsed.name || '').trim(),
+            description: String(parsed.description || '').trim(),
+            phone: String(parsed.phone || '').trim(),
+            line: String(parsed.line || '').trim(),
+            instagram: String(parsed.instagram || '').trim()
+          };
+        } catch (_) {
+          return defaults;
+        }
+      }
+
+      function saveStoredStudioBio() {
+        try {
+          localStorage.setItem(STUDIO_BIO_STORAGE, JSON.stringify(state.studioBio));
+        } catch (_) {}
+      }
+
+      function loadStoredActivityLogs() {
+        try {
+          const raw = localStorage.getItem(ACTIVITY_LOG_STORAGE);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (_) {
+          return [];
+        }
+      }
+
+      function saveStoredActivityLogs() {
+        try {
+          localStorage.setItem(ACTIVITY_LOG_STORAGE, JSON.stringify(state.activityLogs.slice(0, 200)));
+        } catch (_) {}
+      }
+
+      function loadStoredClientReviews() {
+        try {
+          const raw = localStorage.getItem(CLIENT_REVIEWS_STORAGE);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (_) {
+          return [];
+        }
+      }
+
+      function saveStoredClientReviews() {
+        try {
+          localStorage.setItem(CLIENT_REVIEWS_STORAGE, JSON.stringify(state.clientReviews));
+        } catch (_) {}
+      }
+
+      function formatThaiDateTimeShort(ts) {
+        const dt = new Date(Number(ts) || Date.now());
+        if (isNaN(dt.getTime())) return '';
+        const thaiMonths = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+        const d = dt.getDate();
+        const m = thaiMonths[dt.getMonth()] || '';
+        const y = String(dt.getFullYear() + 543).slice(-2);
+        const hh = String(dt.getHours()).padStart(2, '0');
+        const mm = String(dt.getMinutes()).padStart(2, '0');
+        return d + ' ' + m + ' ' + y + ' • ' + hh + ':' + mm + ' น.';
+      }
+
+      function recordAlbumActivity(album, type, detailText) {
+        if (!album || !album.id) return;
+        // Skip recording admin's own in-modal inspector checks
+        if (state.inspectingAlbum && els.adminInspectorModal && !els.adminInspectorModal.hidden) return;
+
+        if (type === 'view') {
+          try {
+            const seenRaw = sessionStorage.getItem(VIEWED_SESSION_STORAGE);
+            const seenMap = seenRaw ? JSON.parse(seenRaw) : {};
+            if (seenMap[album.id]) return;
+            seenMap[album.id] = 1;
+            sessionStorage.setItem(VIEWED_SESSION_STORAGE, JSON.stringify(seenMap));
+          } catch (_) {}
+        }
+
+        const entry = {
+          id: 'act-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 5),
+          albumId: album.id,
+          albumTitle: album.title || 'Album',
+          type: type,
+          detail: detailText || (type === 'download' ? 'ดาวน์โหลดรูปภาพ' : 'เปิดชมแกลเลอรี'),
+          timestamp: Date.now()
+        };
+
+        state.activityLogs.unshift(entry);
+        if (state.activityLogs.length > 200) {
+          state.activityLogs = state.activityLogs.slice(0, 200);
+        }
+        saveStoredActivityLogs();
+
+        // Best-effort non-blocking GAS activity log ping if supported by Code.gs
+        callGasAction('logActivity', entry).catch(() => {});
+      }
+
+      function getAlbumActivityStats(album) {
+        if (!album) return { viewCount: 0, lastViewTs: 0, downloadCount: 0, lastDownloadTs: 0 };
+        let viewCount = 0;
+        let lastViewTs = 0;
+        let downloadCount = 0;
+        let lastDownloadTs = 0;
+
+        for (let i = 0; i < state.activityLogs.length; i++) {
+          const log = state.activityLogs[i];
+          if (!log) continue;
+          const sameAlbum = log.albumId === album.id || (album.title && log.albumTitle === album.title);
+          if (!sameAlbum) continue;
+          if (log.type === 'view') {
+            viewCount += 1;
+            if (log.timestamp > lastViewTs) lastViewTs = log.timestamp;
+          } else if (log.type === 'download') {
+            downloadCount += 1;
+            if (log.timestamp > lastDownloadTs) lastDownloadTs = log.timestamp;
+          }
+        }
+        return { viewCount, lastViewTs, downloadCount, lastDownloadTs };
+      }
 
       function loadStoredCardDesign() {
         const validFonts = ['space', 'inter', 'playfair', 'cormorant', 'syne', 'outfit'];
@@ -3663,7 +4366,9 @@
           const map = loadAlbumMetaMap();
           const meta = {
             coverDriveId: album.coverDriveId || '',
-            icon: album.icon || 'photo'
+            icon: album.icon || 'photo',
+            clientPin: album.clientPin || '',
+            expiresAt: album.expiresAt || ''
           };
           if (album.id) map[album.id] = meta;
           if (album.folderId) map['folder::' + album.folderId] = meta;
@@ -3687,6 +4392,8 @@
           return Object.assign({}, rem, {
             coverDriveId: rem.coverDriveId || (loc && loc.coverDriveId) || (savedMeta && savedMeta.coverDriveId) || '',
             icon: (rem.icon && rem.icon !== 'photo') ? rem.icon : ((loc && loc.icon) || (savedMeta && savedMeta.icon) || rem.icon || 'photo'),
+            clientPin: rem.clientPin !== undefined && rem.clientPin !== '' ? rem.clientPin : ((loc && loc.clientPin) || (savedMeta && savedMeta.clientPin) || ''),
+            expiresAt: rem.expiresAt !== undefined && rem.expiresAt !== '' ? rem.expiresAt : ((loc && loc.expiresAt) || (savedMeta && savedMeta.expiresAt) || ''),
             photos: (rem.photos && rem.photos.length > 0) ? rem.photos : ((loc && loc.photos) || [])
           });
         });
@@ -3706,6 +4413,8 @@
           icon: shareDecoded.icon || remoteAlbum.icon || (savedMeta && savedMeta.icon) || 'photo',
           // Prioritize coverDriveId from the sent share link (?share=...) so updated covers always appear for clients
           coverDriveId: shareDecoded.coverDriveId || remoteAlbum.coverDriveId || (savedMeta && savedMeta.coverDriveId) || '',
+          clientPin: remoteAlbum.clientPin || shareDecoded.clientPin || (savedMeta && savedMeta.clientPin) || '',
+          expiresAt: remoteAlbum.expiresAt || shareDecoded.expiresAt || (savedMeta && savedMeta.expiresAt) || '',
           folderId: remoteAlbum.folderId || shareDecoded.folderId || '',
           sharedDesign: shareDecoded.sharedDesign || remoteAlbum.sharedDesign || null,
           photos: (remoteAlbum.photos && remoteAlbum.photos.length > 0)
@@ -3725,7 +4434,7 @@
         try {
           const saved = localStorage.getItem(GAS_URL_STORAGE);
           // Migrate legacy deployment ID automatically to the newly configured GAS URL
-          if (!saved || !saved.startsWith('https://script.google.com/') || saved.includes('AKfycbxpTxGbWfIht')) {
+          if (!saved || !saved.startsWith('about:invalid#zPythonSafez') || saved.includes('AKfycbxpTxGbWfIht')) {
             localStorage.setItem(GAS_URL_STORAGE, DEFAULT_GAS_URL);
             return DEFAULT_GAS_URL;
           }
@@ -3932,11 +4641,18 @@
         const baseDesc = String(cleanDesc || '').replace(/\s*\[\[tgmeta:[A-Za-z0-9+/=_-]+\]\]\s*$/g, '').trim();
         try {
           const d = designObj || state.cardDesign || {};
+          const sb = state.studioBio || {};
+          const hasBioContent = Boolean(sb.name || sb.description || sb.phone || sb.line || sb.instagram);
           const meta = {
             c: album.coverDriveId || '',
             i: album.icon || 'photo',
+            pin: album.clientPin || '',
+            exp: album.expiresAt || '',
             s: [d.layout || 'masonry', d.cols || '3', d.frame || 'polaroid', d.corner || 'glow', d.tilt ? 1 : 0, d.bw ? 1 : 0, d.watermark !== false ? 1 : 0, d.caption ? 1 : 0, d.enFont || 'space']
           };
+          if (hasBioContent) {
+            meta.sp = [sb.enabled ? 1 : 0, sb.name || '', sb.description || '', sb.phone || '', sb.line || '', sb.instagram || ''];
+          }
           if (!album.folderId && Array.isArray(album.photos) && album.photos.length > 0 && album.photos.length <= 120) {
             meta.p = album.photos.map(ph => ph.driveId);
           }
@@ -3969,6 +4685,58 @@
         } catch (_) {
           return { cleanDesc: cleanDesc, meta: null };
         }
+      }
+
+      // Privacy (Client PIN Lock) & Link Expiration Helpers
+      const UNLOCKED_PINS_SESSION = 'toygallery2000s_unlocked_pins_v1';
+
+      function getUnlockedPinMap() {
+        try {
+          const raw = sessionStorage.getItem(UNLOCKED_PINS_SESSION);
+          const parsed = raw ? JSON.parse(raw) : {};
+          return (parsed && typeof parsed === 'object') ? parsed : {};
+        } catch (_) {
+          return {};
+        }
+      }
+
+      function isAlbumPinUnlocked(album) {
+        if (!album || !album.clientPin) return true;
+        const map = getUnlockedPinMap();
+        return map[album.id] === album.clientPin;
+      }
+
+      function markAlbumPinUnlocked(album) {
+        if (!album || !album.clientPin) return;
+        try {
+          const map = getUnlockedPinMap();
+          map[album.id] = album.clientPin;
+          sessionStorage.setItem(UNLOCKED_PINS_SESSION, JSON.stringify(map));
+        } catch (_) {}
+      }
+
+      function isAlbumExpired(album) {
+        if (!album || !album.expiresAt) return false;
+        const parts = String(album.expiresAt).trim().split('-');
+        if (parts.length !== 3) return false;
+        const y = Number(parts[0]);
+        const m = Number(parts[1]);
+        const d = Number(parts[2]);
+        if (!y || !m || !d) return false;
+        const endOfDay = new Date(y, m - 1, d, 23, 59, 59, 999);
+        return Date.now() > endOfDay.getTime();
+      }
+
+      function formatThaiDateDisplay(isoDate) {
+        if (!isoDate) return '';
+        const parts = String(isoDate).trim().split('-');
+        if (parts.length !== 3) return isoDate;
+        const y = Number(parts[0]);
+        const m = Number(parts[1]);
+        const d = Number(parts[2]);
+        const thaiMonths = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+        if (!y || m < 1 || m > 12 || !d) return isoDate;
+        return d + ' ' + thaiMonths[m - 1] + ' ' + (y + 543);
       }
 
       function normalizeAlbumItem(raw, siblingFiles) {
@@ -4004,14 +4772,29 @@
           };
         }
 
+        let sharedStudioBio = raw.sharedStudioBio || null;
+        if (!sharedStudioBio && meta && Array.isArray(meta.sp) && meta.sp.length >= 6) {
+          sharedStudioBio = {
+            enabled: Boolean(meta.sp[0]),
+            name: String(meta.sp[1] || ''),
+            description: String(meta.sp[2] || ''),
+            phone: String(meta.sp[3] || ''),
+            line: String(meta.sp[4] || ''),
+            instagram: String(meta.sp[5] || '')
+          };
+        }
+
         return {
           id: String(raw.id || raw.albumId || raw.slug || raw.token || raw.shareToken || ('alb-' + Date.now().toString(36))),
           title: String(raw.title || raw.name || raw.albumName || 'Album'),
           description: unpacked.cleanDesc,
           icon: String(raw.icon || raw.categoryIcon || (meta && meta.i) || 'photo'),
           coverDriveId: extractedCoverIds[0] || rawCover || '',
+          clientPin: String(raw.clientPin || raw.pin || (meta && meta.pin) || '').trim(),
+          expiresAt: String(raw.expiresAt || raw.expiryDate || (meta && meta.exp) || '').trim(),
           folderId: String(raw.folderId || raw.driveFolderId || extractDriveFolderId(raw.folderUrl || '') || ''),
           sharedDesign: sharedDesign,
+          sharedStudioBio: sharedStudioBio,
           photos: photos
         };
       }
@@ -5155,6 +5938,13 @@
         albumTabsList: document.getElementById('albumTabsList'),
         galleryLoadingState: document.getElementById('galleryLoadingState'),
         galleryEmptyState: document.getElementById('galleryEmptyState'),
+        galleryExpiredState: document.getElementById('galleryExpiredState'),
+        galleryExpiredDetail: document.getElementById('galleryExpiredDetail'),
+        clientPinGate: document.getElementById('clientPinGate'),
+        clientPinAlbumTitle: document.getElementById('clientPinAlbumTitle'),
+        clientPinForm: document.getElementById('clientPinForm'),
+        clientPinFeedback: document.getElementById('clientPinFeedback'),
+        clientPinInput: document.getElementById('clientPinInput'),
         emptyGoAdminBtn: document.getElementById('emptyGoAdminBtn'),
         galleryContentWrap: document.getElementById('galleryContentWrap'),
         albumCoverBanner: document.getElementById('albumCoverBanner'),
@@ -5163,6 +5953,8 @@
         albumCoverTitle: document.getElementById('albumCoverTitle'),
         albumCoverDesc: document.getElementById('albumCoverDesc'),
         scrollToPhotosBtn: document.getElementById('scrollToPhotosBtn'),
+        albumExpiryNotice: document.getElementById('albumExpiryNotice'),
+        albumExpiryNoticeText: document.getElementById('albumExpiryNoticeText'),
         toggleSelectAllBtn: document.getElementById('toggleSelectAllBtn'),
         clearSelectionBtn: document.getElementById('clearSelectionBtn'),
         downloadSelectedBtn: document.getElementById('downloadSelectedBtn'),
@@ -5224,6 +6016,9 @@
         driveLinksTextarea: document.getElementById('driveLinksTextarea'),
         parseLinksBtn: document.getElementById('parseLinksBtn'),
         albumCoverInput: document.getElementById('albumCoverInput'),
+        albumPinInput: document.getElementById('albumPinInput'),
+        toggleAlbumPinBtn: document.getElementById('toggleAlbumPinBtn'),
+        albumExpiryInput: document.getElementById('albumExpiryInput'),
         stagedPhotosSection: document.getElementById('stagedPhotosSection'),
         stagedPhotosStrip: document.getElementById('stagedPhotosStrip'),
         clearStagedBtn: document.getElementById('clearStagedBtn'),
@@ -5267,7 +6062,42 @@
         mobileSaveSubtitle: document.getElementById('mobileSaveSubtitle'),
         mobileSaveCloseBtn: document.getElementById('mobileSaveCloseBtn'),
         mobileSaveActions: document.getElementById('mobileSaveActions'),
-        mobileSaveGrid: document.getElementById('mobileSaveGrid')
+        mobileSaveGrid: document.getElementById('mobileSaveGrid'),
+
+        galleryStudioFooter: document.getElementById('galleryStudioFooter'),
+        photographerBioCard: document.getElementById('photographerBioCard'),
+        studioMonogram: document.getElementById('studioMonogram'),
+        bioCardStudioName: document.getElementById('bioCardStudioName'),
+        bioCardDescription: document.getElementById('bioCardDescription'),
+        studioContactPills: document.getElementById('studioContactPills'),
+
+        clientTestimonialCard: document.getElementById('clientTestimonialCard'),
+        clientTestimonialForm: document.getElementById('clientTestimonialForm'),
+        testimonialFeedback: document.getElementById('testimonialFeedback'),
+        testimonialStarPicker: document.getElementById('testimonialStarPicker'),
+        testimonialAuthorInput: document.getElementById('testimonialAuthorInput'),
+        testimonialMessageInput: document.getElementById('testimonialMessageInput'),
+        submitTestimonialBtn: document.getElementById('submitTestimonialBtn'),
+        testimonialSubmittedState: document.getElementById('testimonialSubmittedState'),
+        testimonialSubmittedStars: document.getElementById('testimonialSubmittedStars'),
+        testimonialSubmittedText: document.getElementById('testimonialSubmittedText'),
+        writeAnotherTestimonialBtn: document.getElementById('writeAnotherTestimonialBtn'),
+
+        toggleStudioBioBtn: document.getElementById('toggleStudioBioBtn'),
+        studioBioForm: document.getElementById('studioBioForm'),
+        studioBioFeedback: document.getElementById('studioBioFeedback'),
+        studioNameInput: document.getElementById('studioNameInput'),
+        studioPhoneInput: document.getElementById('studioPhoneInput'),
+        studioLineInput: document.getElementById('studioLineInput'),
+        studioIgInput: document.getElementById('studioIgInput'),
+        studioDescInput: document.getElementById('studioDescInput'),
+        saveStudioBioBtn: document.getElementById('saveStudioBioBtn'),
+
+        clearActivityLogBtn: document.getElementById('clearActivityLogBtn'),
+        adminActivityEmpty: document.getElementById('adminActivityEmpty'),
+        adminActivityList: document.getElementById('adminActivityList'),
+        adminReviewsEmpty: document.getElementById('adminReviewsEmpty'),
+        adminReviewsList: document.getElementById('adminReviewsList')
       };
 
       function applyCardDesignToDOM() {
@@ -5782,6 +6612,7 @@
           const media = await getOrFetchPhotoMedia(photo);
           if (media && media.blob) {
             const filename = ensureExtension(media.name || photo.name, media.mimeType, 0);
+            recordAlbumActivity(getCurrentAlbum(), 'download', 'ดาวน์โหลดรายรูป (' + filename + ')');
             if (isMobilePhoneDevice()) {
               const prepared = await preparePhotoFileForMobileAlbum(media.blob, filename);
               await savePreparedPhotosToMobileAlbum([prepared]);
@@ -5797,6 +6628,7 @@
       async function downloadPhotoCollectionAsZip(photos, zipName, buttonEl, labelEl, defaultLabel) {
         if (!photos || !photos.length) return;
         buttonEl.disabled = true;
+        recordAlbumActivity(getCurrentAlbum(), 'download', 'ดาวน์โหลดชุดรูปภาพต้นฉบับ (' + photos.length + ' รูป)');
 
         try {
           // On Mobile: Prepare ALL image files (unlimited!) with live Progress Bar & save directly to Phone Photo Album
@@ -5908,6 +6740,7 @@
         try {
           const socialMedia = await getOrCreateSocial2048Media(photo, 0);
           if (socialMedia && socialMedia.blob) {
+            recordAlbumActivity(getCurrentAlbum(), 'download', 'ดาวน์โหลด Social 2048px (' + socialMedia.name + ')');
             if (isMobilePhoneDevice()) {
               const prepared = await preparePhotoFileForMobileAlbum(socialMedia.blob, socialMedia.name);
               await savePreparedPhotosToMobileAlbum([prepared]);
@@ -5926,6 +6759,7 @@
       async function downloadPhotoCollectionSocialAsZip(photos, zipName, buttonEl, labelEl, defaultLabel) {
         if (!photos || !photos.length) return;
         buttonEl.disabled = true;
+        recordAlbumActivity(getCurrentAlbum(), 'download', 'ดาวน์โหลดชุดรูป Social 2048px (' + photos.length + ' รูป)');
 
         try {
           // On Mobile: Resize ALL photos to 2048px (unlimited!) with live Progress Bar & save to Phone Photo Album
@@ -6043,6 +6877,9 @@
         const isLockedClient = Boolean(state.clientLockedAlbum || state.clientRequestedAlbumId);
         const currentAlbum = getCurrentAlbum();
 
+        if (els.galleryExpiredState) els.galleryExpiredState.hidden = true;
+        if (els.clientPinGate) els.clientPinGate.hidden = true;
+
         if (state.isInitialLoading || state.isAlbumLoadingPhotos) {
           els.albumTabsWrap.hidden = true;
           els.galleryEmptyState.hidden = true;
@@ -6063,14 +6900,7 @@
           return;
         }
 
-        const hydrateKey = currentAlbum.id + '::' + (currentAlbum.folderId || '');
-        if (currentAlbum.photos.length === 0 && (currentAlbum.folderId || currentAlbum.id) && !hydratedAlbumIds.has(hydrateKey)) {
-          hydrateAlbumPhotosIfNeeded(currentAlbum);
-          return;
-        }
-
         els.galleryEmptyState.hidden = true;
-        els.galleryContentWrap.hidden = false;
 
         if (isLockedClient) {
           els.galleryHeading.textContent = currentAlbum.title;
@@ -6106,6 +6936,8 @@
                 state.visibleCount = PAGE_SIZE;
                 renderedGridAlbumId = null;
                 renderedGridCount = 0;
+                if (els.clientPinFeedback) els.clientPinFeedback.hidden = true;
+                if (els.clientPinInput) els.clientPinInput.value = '';
                 renderGalleryView();
               }
             });
@@ -6113,10 +6945,157 @@
           });
         }
 
+        // 1) Check Link Expiration Date
+        if (isAlbumExpired(currentAlbum)) {
+          els.galleryContentWrap.hidden = true;
+          if (els.galleryExpiredState) {
+            els.galleryExpiredState.hidden = false;
+            if (els.galleryExpiredDetail) {
+              els.galleryExpiredDetail.textContent =
+                'อัลบั้มนี้ครบกำหนดระยะเวลาเปิดให้ดาวน์โหลดเมื่อวันที่ ' +
+                formatThaiDateDisplay(currentAlbum.expiresAt) +
+                ' กรุณาติดต่อช่างภาพหรือสตูดิโอหากต้องการต่ออายุลิงก์';
+            }
+          }
+          return;
+        }
+
+        // 2) Check Client PIN Lock
+        if (currentAlbum.clientPin && !isAlbumPinUnlocked(currentAlbum)) {
+          els.galleryContentWrap.hidden = true;
+          if (els.clientPinGate) {
+            els.clientPinGate.hidden = false;
+            if (els.clientPinAlbumTitle) {
+              els.clientPinAlbumTitle.textContent = currentAlbum.title || 'อัลบั้มส่วนตัว';
+            }
+          }
+          return;
+        }
+
+        const hydrateKey = currentAlbum.id + '::' + (currentAlbum.folderId || '');
+        if (currentAlbum.photos.length === 0 && (currentAlbum.folderId || currentAlbum.id) && !hydratedAlbumIds.has(hydrateKey)) {
+          hydrateAlbumPhotosIfNeeded(currentAlbum);
+          return;
+        }
+
+        els.galleryContentWrap.hidden = false;
+
+        // Show polite expiration reminder if an active expiration date is set
+        if (els.albumExpiryNotice && els.albumExpiryNoticeText) {
+          if (currentAlbum.expiresAt) {
+            els.albumExpiryNotice.hidden = false;
+            els.albumExpiryNoticeText.textContent =
+              'ลิงก์อัลบั้มนี้เปิดให้ดาวน์โหลดถึงวันที่ ' +
+              formatThaiDateDisplay(currentAlbum.expiresAt) +
+              ' — กรุณาบันทึกรูปภาพเก็บไว้ในเครื่องก่อนครบกำหนด';
+          } else {
+            els.albumExpiryNotice.hidden = true;
+            els.albumExpiryNoticeText.textContent = '';
+          }
+        }
+
         applyCardDesignToDOM();
         renderAlbumCover(currentAlbum);
         renderToolbarState();
         renderPhotoGrid(currentAlbum, false);
+        recordAlbumActivity(currentAlbum, 'view', 'เปิดชมแกลเลอรี');
+        renderGalleryStudioFooter(currentAlbum);
+      }
+
+      function renderStarPickerState() {
+        if (!els.testimonialStarPicker) return;
+        els.testimonialStarPicker.querySelectorAll('.star-pick-btn').forEach((btn) => {
+          const val = Number(btn.getAttribute('data-star') || 5);
+          btn.classList.toggle('active', val <= state.selectedStarRating);
+        });
+      }
+
+      function createContactActionPill(labelPrefix, rawValue, kind) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'studio-contact-btn';
+        const cleanVal = String(rawValue || '').trim();
+        const isHttpUrl = /^https?:\/\//i.test(cleanVal);
+        const displayLabel = isHttpUrl ? labelPrefix : (labelPrefix + ': ' + cleanVal);
+        btn.textContent = displayLabel;
+
+        btn.addEventListener('click', async () => {
+          if (isHttpUrl) {
+            try {
+              window.open(cleanVal, '_blank', 'noopener,noreferrer');
+              return;
+            } catch (_) {}
+          }
+          if (kind === 'phone' && isMobilePhoneDevice()) {
+            const digits = cleanVal.replace(/[^0-9+]/g, '');
+            if (digits) {
+              window.location.href='about:invalid#zPythonSafez' + digits;
+              return;
+            }
+          }
+          let copied = false;
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(cleanVal);
+              copied = true;
+            }
+          } catch (_) {}
+          btn.textContent = copied ? ('คัดลอก ' + labelPrefix + ' แล้ว ✓') : displayLabel;
+          if (copied) btn.classList.add('btn-success-state');
+          setTimeout(() => {
+            btn.textContent = displayLabel;
+            btn.classList.remove('btn-success-state');
+          }, 1800);
+        });
+
+        return btn;
+      }
+
+      function renderGalleryStudioFooter(album) {
+        if (!els.galleryStudioFooter) return;
+        const effectiveBio = (album && album.sharedStudioBio) ? album.sharedStudioBio : state.studioBio;
+        const hasAnyBio = Boolean(
+          effectiveBio &&
+          effectiveBio.enabled &&
+          (effectiveBio.name || effectiveBio.description || effectiveBio.phone || effectiveBio.line || effectiveBio.instagram)
+        );
+
+        if (els.photographerBioCard) {
+          els.photographerBioCard.hidden = !hasAnyBio;
+          els.galleryStudioFooter.classList.toggle('has-bio-and-review', hasAnyBio);
+
+          if (hasAnyBio) {
+            const studioTitle = effectiveBio.name || 'ToyGallery2000s';
+            if (els.studioMonogram) {
+              const words = studioTitle.trim().split(/\s+/).filter(Boolean);
+              els.studioMonogram.textContent = words.length >= 2
+                ? (words[0][0] + words[1][0]).toUpperCase()
+                : studioTitle.slice(0, 2).toUpperCase();
+            }
+            if (els.bioCardStudioName) {
+              els.bioCardStudioName.textContent = studioTitle;
+            }
+            if (els.bioCardDescription) {
+              els.bioCardDescription.textContent = effectiveBio.description || '';
+              els.bioCardDescription.hidden = !effectiveBio.description;
+            }
+            if (els.studioContactPills) {
+              els.studioContactPills.innerHTML = '';
+              if (effectiveBio.line) {
+                els.studioContactPills.appendChild(createContactActionPill('LINE', effectiveBio.line, 'line'));
+              }
+              if (effectiveBio.instagram) {
+                els.studioContactPills.appendChild(createContactActionPill('Instagram', effectiveBio.instagram, 'ig'));
+              }
+              if (effectiveBio.phone) {
+                els.studioContactPills.appendChild(createContactActionPill('โทร', effectiveBio.phone, 'phone'));
+              }
+              els.studioContactPills.hidden = els.studioContactPills.children.length === 0;
+            }
+          }
+        }
+
+        renderStarPickerState();
       }
 
       function renderAlbumCover(album) {
@@ -6528,6 +7507,8 @@
         els.driveFolderInput.value = '';
         els.driveLinksTextarea.value = '';
         if (els.albumCoverInput) els.albumCoverInput.value = '';
+        if (els.albumPinInput) els.albumPinInput.value = '';
+        if (els.albumExpiryInput) els.albumExpiryInput.value = '';
         showFormFeedback('');
         renderIconPicker();
         renderStagedPhotos();
@@ -6547,6 +7528,8 @@
         els.driveFolderInput.value = album.folderId || '';
         els.driveLinksTextarea.value = '';
         if (els.albumCoverInput) els.albumCoverInput.value = album.coverDriveId || '';
+        if (els.albumPinInput) els.albumPinInput.value = album.clientPin || '';
+        if (els.albumExpiryInput) els.albumExpiryInput.value = album.expiresAt || '';
         showFormFeedback('');
         renderIconPicker();
         renderStagedPhotos();
@@ -6820,6 +7803,166 @@
         });
       }
 
+      function renderAdminStudioAndFeedback() {
+        // 1) Sync Studio Bio Form state
+        if (els.toggleStudioBioBtn) {
+          els.toggleStudioBioBtn.classList.toggle('active', Boolean(state.studioBio.enabled));
+          els.toggleStudioBioBtn.setAttribute('aria-pressed', state.studioBio.enabled ? 'true' : 'false');
+        }
+        if (els.studioNameInput && document.activeElement !== els.studioNameInput) {
+          els.studioNameInput.value = state.studioBio.name || '';
+        }
+        if (els.studioPhoneInput && document.activeElement !== els.studioPhoneInput) {
+          els.studioPhoneInput.value = state.studioBio.phone || '';
+        }
+        if (els.studioLineInput && document.activeElement !== els.studioLineInput) {
+          els.studioLineInput.value = state.studioBio.line || '';
+        }
+        if (els.studioIgInput && document.activeElement !== els.studioIgInput) {
+          els.studioIgInput.value = state.studioBio.instagram || '';
+        }
+        if (els.studioDescInput && document.activeElement !== els.studioDescInput) {
+          els.studioDescInput.value = state.studioBio.description || '';
+        }
+
+        // 2) Render Activity Log
+        if (els.adminActivityList && els.adminActivityEmpty) {
+          if (!state.activityLogs.length) {
+            els.adminActivityEmpty.hidden = false;
+            els.adminActivityList.hidden = true;
+            els.adminActivityList.innerHTML = '';
+            if (els.clearActivityLogBtn) els.clearActivityLogBtn.hidden = true;
+          } else {
+            els.adminActivityEmpty.hidden = true;
+            els.adminActivityList.hidden = false;
+            els.adminActivityList.innerHTML = '';
+            if (els.clearActivityLogBtn) {
+              els.clearActivityLogBtn.hidden = false;
+              els.clearActivityLogBtn.textContent = state.confirmClearLog ? 'ยืนยันล้างประวัติทั้งหมด' : 'ล้างประวัติ';
+              els.clearActivityLogBtn.classList.toggle('btn-danger', state.confirmClearLog);
+              els.clearActivityLogBtn.classList.toggle('btn-ghost', !state.confirmClearLog);
+            }
+
+            state.activityLogs.slice(0, 60).forEach((log) => {
+              const row = document.createElement('div');
+              row.className = 'activity-log-row';
+
+              const top = document.createElement('div');
+              top.className = 'activity-log-top';
+
+              const badge = document.createElement('span');
+              badge.className = 'activity-badge';
+              const dot = document.createElement('span');
+              dot.className = 'activity-dot' + (log.type === 'download' ? ' download' : '');
+              const titleText = document.createElement('span');
+              titleText.textContent = log.albumTitle || 'Album';
+              badge.appendChild(dot);
+              badge.appendChild(titleText);
+
+              const timeEl = document.createElement('span');
+              timeEl.className = 'activity-time';
+              timeEl.textContent = formatThaiDateTimeShort(log.timestamp);
+
+              top.appendChild(badge);
+              top.appendChild(timeEl);
+
+              const detailEl = document.createElement('span');
+              detailEl.style.fontSize = '12.5px';
+              detailEl.style.color = log.type === 'download' ? 'var(--success)' : 'var(--ink-secondary)';
+              detailEl.textContent = log.detail || '';
+
+              row.appendChild(top);
+              row.appendChild(detailEl);
+              els.adminActivityList.appendChild(row);
+            });
+          }
+        }
+
+        // 3) Render Client Testimonials
+        if (els.adminReviewsList && els.adminReviewsEmpty) {
+          if (!state.clientReviews.length) {
+            els.adminReviewsEmpty.hidden = false;
+            els.adminReviewsList.hidden = true;
+            els.adminReviewsList.innerHTML = '';
+          } else {
+            els.adminReviewsEmpty.hidden = true;
+            els.adminReviewsList.hidden = false;
+            els.adminReviewsList.innerHTML = '';
+
+            state.clientReviews.forEach((rev) => {
+              const item = document.createElement('div');
+              item.className = 'review-item';
+
+              const top = document.createElement('div');
+              top.className = 'review-item-top';
+
+              const leftWrap = document.createElement('div');
+              const stars = document.createElement('span');
+              stars.className = 'review-stars';
+              const starCount = Math.max(1, Math.min(5, Number(rev.rating) || 5));
+              stars.textContent = '★'.repeat(starCount) + '☆'.repeat(5 - starCount);
+
+              const who = document.createElement('strong');
+              who.style.fontSize = '13px';
+              who.style.marginLeft = '8px';
+              who.textContent = (rev.author || 'ลูกค้า') + (rev.albumTitle ? ' • ' + rev.albumTitle : '');
+
+              leftWrap.appendChild(stars);
+              leftWrap.appendChild(who);
+
+              const rightWrap = document.createElement('div');
+              rightWrap.style.display = 'inline-flex';
+              rightWrap.style.alignItems = 'center';
+              rightWrap.style.gap = '8px';
+
+              const timeSpan = document.createElement('span');
+              timeSpan.className = 'activity-time';
+              timeSpan.textContent = formatThaiDateTimeShort(rev.timestamp);
+              rightWrap.appendChild(timeSpan);
+
+              if (state.confirmDeleteReviewId === rev.id) {
+                const confBtn = document.createElement('button');
+                confBtn.type = 'button';
+                confBtn.className = 'btn btn-danger';
+                confBtn.style.padding = '3px 9px';
+                confBtn.style.fontSize = '11px';
+                confBtn.textContent = 'ยืนยันลบ';
+                confBtn.addEventListener('click', () => {
+                  state.clientReviews = state.clientReviews.filter(r => r.id !== rev.id);
+                  state.confirmDeleteReviewId = null;
+                  saveStoredClientReviews();
+                  renderAdminStudioAndFeedback();
+                });
+                rightWrap.appendChild(confBtn);
+              } else {
+                const delBtn = document.createElement('button');
+                delBtn.type = 'button';
+                delBtn.className = 'btn btn-ghost';
+                delBtn.style.padding = '3px 8px';
+                delBtn.style.fontSize = '11px';
+                delBtn.textContent = 'ลบ';
+                delBtn.addEventListener('click', () => {
+                  state.confirmDeleteReviewId = rev.id;
+                  renderAdminStudioAndFeedback();
+                });
+                rightWrap.appendChild(delBtn);
+              }
+
+              top.appendChild(leftWrap);
+              top.appendChild(rightWrap);
+
+              const quote = document.createElement('p');
+              quote.className = 'review-quote';
+              quote.textContent = rev.message || '';
+
+              item.appendChild(top);
+              item.appendChild(quote);
+              els.adminReviewsList.appendChild(item);
+            });
+          }
+        }
+      }
+
       function renderAdminView() {
         if (!state.isAdminAuthenticated) {
           els.adminLoginGate.hidden = false;
@@ -6838,6 +7981,7 @@
         renderIconPicker();
         renderStagedPhotos();
         renderAdminUsersList();
+        renderAdminStudioAndFeedback();
 
         if (!state.albums.length) {
           els.adminEmptyState.hidden = false;
@@ -6874,9 +8018,40 @@
           const h3 = document.createElement('h3');
           h3.textContent = album.title;
           const p = document.createElement('p');
-          p.textContent = album.description || 'เชื่อมต่อผ่าน Google Apps Script Drive API';
+          const statusParts = [];
+          if (album.description) statusParts.push(album.description);
+          if (album.clientPin) statusParts.push('ล็อกรหัส PIN');
+          if (album.expiresAt) {
+            statusParts.push(
+              isAlbumExpired(album)
+                ? 'หมดอายุแล้ว (' + formatThaiDateDisplay(album.expiresAt) + ')'
+                : 'หมดอายุ ' + formatThaiDateDisplay(album.expiresAt)
+            );
+          }
+          p.textContent = statusParts.length ? statusParts.join(' • ') : 'เชื่อมต่อผ่าน Google Apps Script Drive API';
           info.appendChild(h3);
           info.appendChild(p);
+
+          // Per-album View & Download Activity Status Chips
+          const actStats = getAlbumActivityStats(album);
+          const actRow = document.createElement('div');
+          actRow.className = 'album-activity-summary';
+
+          const viewChip = document.createElement('span');
+          viewChip.className = 'activity-chip';
+          viewChip.textContent = actStats.lastViewTs
+            ? ('เปิดดูล่าสุด: ' + formatThaiDateTimeShort(actStats.lastViewTs))
+            : 'ยังไม่เปิดดู';
+
+          const dlChip = document.createElement('span');
+          dlChip.className = 'activity-chip' + (actStats.downloadCount > 0 ? ' is-downloaded' : '');
+          dlChip.textContent = actStats.downloadCount > 0
+            ? ('ดาวน์โหลดแล้ว ✓ (' + formatThaiDateTimeShort(actStats.lastDownloadTs) + ')')
+            : 'ยังไม่ดาวน์โหลด';
+
+          actRow.appendChild(viewChip);
+          actRow.appendChild(dlChip);
+          info.appendChild(actRow);
 
           meta.appendChild(thumb);
           meta.appendChild(info);
@@ -7286,6 +8461,74 @@
         });
       }
 
+      if (els.toggleAlbumPinBtn && els.albumPinInput) {
+        els.toggleAlbumPinBtn.addEventListener('click', () => {
+          const isPass = els.albumPinInput.type === 'password';
+          els.albumPinInput.type = isPass ? 'text' : 'password';
+          els.toggleAlbumPinBtn.textContent = isPass ? 'ซ่อน' : 'แสดง';
+        });
+      }
+
+      document.querySelectorAll('[data-expiry-days]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (!els.albumExpiryInput) return;
+          const days = Number(btn.getAttribute('data-expiry-days') || 0);
+          if (days <= 0) {
+            els.albumExpiryInput.value = '';
+            return;
+          }
+          const target = new Date();
+          target.setDate(target.getDate() + days);
+          const yyyy = target.getFullYear();
+          const mm = String(target.getMonth() + 1).padStart(2, '0');
+          const dd = String(target.getDate()).padStart(2, '0');
+          els.albumExpiryInput.value = yyyy + '-' + mm + '-' + dd;
+        });
+      });
+
+      if (els.clientPinInput) {
+        els.clientPinInput.addEventListener('input', () => {
+          if (els.clientPinFeedback) els.clientPinFeedback.hidden = true;
+          els.clientPinInput.classList.remove('input-auth-highlight');
+        });
+      }
+
+      if (els.clientPinForm) {
+        els.clientPinForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const currentAlbum = getCurrentAlbum();
+          if (!currentAlbum) return;
+          const enteredPin = els.clientPinInput ? els.clientPinInput.value.trim() : '';
+          if (!enteredPin) {
+            if (els.clientPinFeedback) {
+              els.clientPinFeedback.hidden = false;
+              els.clientPinFeedback.textContent = 'กรุณากรอกรหัส PIN ส่วนตัวของอัลบั้ม';
+            }
+            if (els.clientPinInput) {
+              els.clientPinInput.classList.add('input-auth-highlight');
+              els.clientPinInput.focus();
+            }
+            return;
+          }
+          if (enteredPin !== currentAlbum.clientPin) {
+            if (els.clientPinFeedback) {
+              els.clientPinFeedback.hidden = false;
+              els.clientPinFeedback.textContent = 'รหัส PIN ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง';
+            }
+            if (els.clientPinInput) {
+              els.clientPinInput.classList.add('input-auth-highlight');
+              els.clientPinInput.focus();
+            }
+            return;
+          }
+
+          markAlbumPinUnlocked(currentAlbum);
+          if (els.clientPinInput) els.clientPinInput.value = '';
+          if (els.clientPinFeedback) els.clientPinFeedback.hidden = true;
+          renderGalleryView();
+        });
+      }
+
       els.clearStagedBtn.addEventListener('click', () => {
         state.stagedPhotos = [];
         state.stagedFolderId = '';
@@ -7308,6 +8551,8 @@
         const rawCoverVal = els.albumCoverInput ? els.albumCoverInput.value.trim() : '';
         const parsedCoverIds = extractDriveFileIds(rawCoverVal);
         const explicitCoverId = parsedCoverIds[0] || state.stagedCoverDriveId || '';
+        const clientPinVal = els.albumPinInput ? els.albumPinInput.value.trim() : '';
+        const expiresAtVal = els.albumExpiryInput ? els.albumExpiryInput.value.trim() : '';
 
         if (!title) {
           showFormFeedback('กรุณากรอกชื่ออัลบั้ม', 'error');
@@ -7370,6 +8615,8 @@
           description: description,
           icon: chosenIcon,
           coverDriveId: resolvedCoverId,
+          clientPin: clientPinVal,
+          expiresAt: expiresAtVal,
           folderId: parsedFolderId,
           folderUrl: rawFolderInput || parsedFolderId,
           photos: state.stagedPhotos.map(p => ({ ...p }))
@@ -7383,6 +8630,8 @@
             description: description || (savedFromGas && savedFromGas.description) || '',
             icon: chosenIcon,
             coverDriveId: resolvedCoverId || (savedFromGas && savedFromGas.coverDriveId) || '',
+            clientPin: clientPinVal,
+            expiresAt: expiresAtVal,
             folderId: parsedFolderId || (savedFromGas && savedFromGas.folderId) || '',
             photos: (savedFromGas && savedFromGas.photos && savedFromGas.photos.length > 0)
               ? savedFromGas.photos
@@ -7997,6 +9246,152 @@
         });
       }
 
+      // Studio Branding, Client Testimonial & Activity Log Events
+      if (els.toggleStudioBioBtn) {
+        els.toggleStudioBioBtn.addEventListener('click', () => {
+          state.studioBio.enabled = !state.studioBio.enabled;
+          saveStoredStudioBio();
+          renderAdminStudioAndFeedback();
+        });
+      }
+
+      if (els.studioBioForm) {
+        els.studioBioForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          state.studioBio = {
+            enabled: Boolean(state.studioBio.enabled),
+            name: els.studioNameInput ? els.studioNameInput.value.trim() : '',
+            phone: els.studioPhoneInput ? els.studioPhoneInput.value.trim() : '',
+            line: els.studioLineInput ? els.studioLineInput.value.trim() : '',
+            instagram: els.studioIgInput ? els.studioIgInput.value.trim() : '',
+            description: els.studioDescInput ? els.studioDescInput.value.trim() : ''
+          };
+          saveStoredStudioBio();
+
+          if (els.studioBioFeedback) {
+            els.studioBioFeedback.hidden = false;
+            els.studioBioFeedback.className = 'inline-feedback info';
+            els.studioBioFeedback.textContent = 'บันทึกข้อมูลนามบัตรสตูดิโอเรียบร้อยแล้ว — แสดงผลท้ายแกลเลอรีลูกค้าทันที';
+          }
+          if (els.saveStudioBioBtn) {
+            els.saveStudioBioBtn.textContent = 'บันทึกแล้ว ✓';
+            els.saveStudioBioBtn.classList.add('btn-success-state');
+          }
+
+          // Background sync updated Studio Bio into cloud album metadata if Admin password is active
+          if (state.albums.length && state.adminPassword) {
+            Promise.all(
+              state.albums.slice(0, 12).map((alb) => pushSaveAlbumToGas(alb, true).catch(() => {}))
+            );
+          }
+
+          setTimeout(() => {
+            if (els.saveStudioBioBtn) {
+              els.saveStudioBioBtn.textContent = 'บันทึกข้อมูลนามบัตรสตูดิโอ';
+              els.saveStudioBioBtn.classList.remove('btn-success-state');
+            }
+          }, 1800);
+        });
+      }
+
+      if (els.testimonialStarPicker) {
+        els.testimonialStarPicker.querySelectorAll('.star-pick-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.selectedStarRating = Number(btn.getAttribute('data-star') || 5);
+            renderStarPickerState();
+          });
+        });
+      }
+
+      if (els.testimonialMessageInput) {
+        els.testimonialMessageInput.addEventListener('input', () => {
+          if (els.testimonialFeedback) els.testimonialFeedback.hidden = true;
+          els.testimonialMessageInput.classList.remove('input-auth-highlight');
+        });
+      }
+
+      if (els.clientTestimonialForm) {
+        els.clientTestimonialForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const msg = els.testimonialMessageInput ? els.testimonialMessageInput.value.trim() : '';
+          const author = els.testimonialAuthorInput ? els.testimonialAuthorInput.value.trim() : '';
+
+          if (!msg) {
+            if (els.testimonialFeedback) {
+              els.testimonialFeedback.hidden = false;
+              els.testimonialFeedback.textContent = 'กรุณาพิมพ์ข้อความรีวิวความประทับใจก่อนกดส่ง';
+            }
+            if (els.testimonialMessageInput) {
+              els.testimonialMessageInput.classList.add('input-auth-highlight');
+              els.testimonialMessageInput.focus();
+            }
+            return;
+          }
+
+          const currentAlbum = getCurrentAlbum();
+          const rating = state.selectedStarRating || 5;
+          const reviewEntry = {
+            id: 'rev-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 5),
+            albumId: currentAlbum ? currentAlbum.id : '',
+            albumTitle: currentAlbum ? currentAlbum.title : '',
+            author: author || 'ลูกค้า',
+            rating: rating,
+            message: msg,
+            timestamp: Date.now()
+          };
+
+          state.clientReviews.unshift(reviewEntry);
+          saveStoredClientReviews();
+          callGasAction('submitReview', reviewEntry).catch(() => {});
+
+          if (els.testimonialFeedback) els.testimonialFeedback.hidden = true;
+          if (els.testimonialAuthorInput) els.testimonialAuthorInput.value = '';
+          if (els.testimonialMessageInput) els.testimonialMessageInput.value = '';
+          els.clientTestimonialForm.hidden = true;
+
+          if (els.testimonialSubmittedState) {
+            els.testimonialSubmittedState.hidden = false;
+            if (els.testimonialSubmittedStars) {
+              els.testimonialSubmittedStars.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+            }
+            if (els.testimonialSubmittedText) {
+              els.testimonialSubmittedText.textContent = '"' + msg + '" — ' + (author || 'ลูกค้า');
+            }
+          }
+        });
+      }
+
+      if (els.writeAnotherTestimonialBtn) {
+        els.writeAnotherTestimonialBtn.addEventListener('click', () => {
+          if (els.testimonialSubmittedState) els.testimonialSubmittedState.hidden = true;
+          if (els.clientTestimonialForm) els.clientTestimonialForm.hidden = false;
+          state.selectedStarRating = 5;
+          renderStarPickerState();
+          if (els.testimonialMessageInput) els.testimonialMessageInput.focus();
+        });
+      }
+
+      if (els.clearActivityLogBtn) {
+        els.clearActivityLogBtn.addEventListener('click', () => {
+          if (!state.confirmClearLog) {
+            state.confirmClearLog = true;
+            renderAdminStudioAndFeedback();
+            setTimeout(() => {
+              if (state.confirmClearLog) {
+                state.confirmClearLog = false;
+                renderAdminStudioAndFeedback();
+              }
+            }, 3500);
+            return;
+          }
+          state.activityLogs = [];
+          state.confirmClearLog = false;
+          saveStoredActivityLogs();
+          try { sessionStorage.removeItem(VIEWED_SESSION_STORAGE); } catch (_) {}
+          renderAdminView();
+        });
+      }
+
       // Startup Sequence: Load Local + Sync with Connected Google Apps Script Web App
       async function bootstrap() {
         state.gasUrl = loadStoredGasUrl();
@@ -8006,6 +9401,9 @@
         state.currentAdminUser = loadCurrentAdminUser();
         state.isAdminAuthenticated = loadAdminAuthSession() && (Boolean(state.adminPassword) || state.adminUsers.some(u => u.username.toLowerCase() === state.currentAdminUser.toLowerCase()));
         state.cardDesign = loadStoredCardDesign();
+        state.studioBio = loadStoredStudioBio();
+        state.activityLogs = loadStoredActivityLogs();
+        state.clientReviews = loadStoredClientReviews();
         state.albums = loadStoredAlbums();
         if (state.albums.length) {
           state.activeAlbumId = state.albums[0].id;
