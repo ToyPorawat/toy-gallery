@@ -3259,6 +3259,7 @@
 
       const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbzm0P09gR3nCrZdxTPrn_3kFhndZHL2WN_ApjfMKSZG-yB0HRGn8KnavRwo3yN7mOof/exec';
       const STORAGE_KEY = 'toygallery2000s_albums_v2';
+      const ALBUM_META_STORAGE = 'toygallery2000s_album_meta_v1';
       const GAS_URL_STORAGE = 'toygallery2000s_gas_url_v2';
       const ADMIN_PASS_STORAGE = 'toygallery2000s_admin_pass_v2';
       const ADMIN_AUTH_SESSION_KEY = 'toygallery2000s_admin_session_v1';
@@ -3646,8 +3647,76 @@
         }
       }
 
+      function loadAlbumMetaMap() {
+        try {
+          const raw = localStorage.getItem(ALBUM_META_STORAGE);
+          const parsed = raw ? JSON.parse(raw) : {};
+          return (parsed && typeof parsed === 'object') ? parsed : {};
+        } catch (_) {
+          return {};
+        }
+      }
+
+      function saveAlbumMetaForItem(album) {
+        if (!album) return;
+        try {
+          const map = loadAlbumMetaMap();
+          const meta = {
+            coverDriveId: album.coverDriveId || '',
+            icon: album.icon || 'photo'
+          };
+          if (album.id) map[album.id] = meta;
+          if (album.folderId) map['folder::' + album.folderId] = meta;
+          localStorage.setItem(ALBUM_META_STORAGE, JSON.stringify(map));
+        } catch (_) {}
+      }
+
+      function mergeRemoteAlbumsWithLocalMeta(remoteList) {
+        if (!Array.isArray(remoteList)) return [];
+        const metaMap = loadAlbumMetaMap();
+        const localById = new Map();
+        const localByFolder = new Map();
+        (state.albums || []).forEach((loc) => {
+          if (loc.id) localById.set(loc.id, loc);
+          if (loc.folderId) localByFolder.set(loc.folderId, loc);
+        });
+
+        return remoteList.map((rem) => {
+          const loc = localById.get(rem.id) || (rem.folderId ? localByFolder.get(rem.folderId) : null);
+          const savedMeta = metaMap[rem.id] || (rem.folderId ? metaMap['folder::' + rem.folderId] : null);
+          return Object.assign({}, rem, {
+            coverDriveId: rem.coverDriveId || (loc && loc.coverDriveId) || (savedMeta && savedMeta.coverDriveId) || '',
+            icon: (rem.icon && rem.icon !== 'photo') ? rem.icon : ((loc && loc.icon) || (savedMeta && savedMeta.icon) || rem.icon || 'photo'),
+            photos: (rem.photos && rem.photos.length > 0) ? rem.photos : ((loc && loc.photos) || [])
+          });
+        });
+      }
+
+      function mergeClientAlbumData(remoteAlbum, shareDecoded) {
+        if (!remoteAlbum) return shareDecoded;
+        if (!shareDecoded) return remoteAlbum;
+        const metaMap = loadAlbumMetaMap();
+        const savedMeta = metaMap[remoteAlbum.id] || metaMap[shareDecoded.id] || (remoteAlbum.folderId ? metaMap['folder::' + remoteAlbum.folderId] : null);
+        return {
+          id: remoteAlbum.id || shareDecoded.id,
+          title: shareDecoded.title || (remoteAlbum.title && remoteAlbum.title !== 'Album' ? remoteAlbum.title : 'Album'),
+          description: (shareDecoded.description !== undefined && shareDecoded.description !== '')
+            ? shareDecoded.description
+            : (remoteAlbum.description || ''),
+          icon: shareDecoded.icon || remoteAlbum.icon || (savedMeta && savedMeta.icon) || 'photo',
+          // Prioritize coverDriveId from the sent share link (?share=...) so updated covers always appear for clients
+          coverDriveId: shareDecoded.coverDriveId || remoteAlbum.coverDriveId || (savedMeta && savedMeta.coverDriveId) || '',
+          folderId: remoteAlbum.folderId || shareDecoded.folderId || '',
+          sharedDesign: shareDecoded.sharedDesign || remoteAlbum.sharedDesign || null,
+          photos: (remoteAlbum.photos && remoteAlbum.photos.length > 0)
+            ? remoteAlbum.photos
+            : (shareDecoded.photos || [])
+        };
+      }
+
       function saveStoredAlbums() {
         try {
+          (state.albums || []).forEach(saveAlbumMetaForItem);
           localStorage.setItem(STORAGE_KEY, JSON.stringify(state.albums));
         } catch (_) {}
       }
@@ -4742,6 +4811,8 @@
               categoryIcon: album.icon || 'photo',
               coverDriveId: album.coverDriveId || '',
               coverPhotoId: album.coverDriveId || '',
+              coverId: album.coverDriveId || '',
+              cover: album.coverDriveId || '',
               folderId: album.folderId || '',
               driveFolderId: album.folderId || '',
               folderUrl: album.folderUrl || album.folderId || '',
@@ -6338,12 +6409,12 @@
         renderStagedPhotos();
       }
 
-      function startEditingAlbum(album) {
+      async function startEditingAlbum(album) {
         state.editingAlbumId = album.id;
         state.stagedIcon = album.icon || 'photo';
         state.stagedCoverDriveId = album.coverDriveId || '';
         state.stagedFolderId = album.folderId || '';
-        state.stagedPhotos = album.photos.map(p => ({ ...p }));
+        state.stagedPhotos = (album.photos || []).map(p => ({ ...p }));
         els.formTitleText.textContent = 'แก้ไขอัลบั้ม';
         els.saveAlbumBtn.textContent = 'บันทึกการเปลี่ยนแปลง';
         els.cancelEditBtn.hidden = false;
@@ -6356,6 +6427,27 @@
         renderIconPicker();
         renderStagedPhotos();
         els.albumTitleInput.focus();
+
+        // Auto-load folder photos if album photos weren't hydrated yet so Admin can pick a new cover easily
+        if (!state.stagedPhotos.length && (album.id || album.folderId)) {
+          try {
+            let loadedPhotos = [];
+            if (album.id) {
+              const single = await fetchSingleAlbumFromGas(album.id, album.folderId);
+              if (single && single.photos && single.photos.length) loadedPhotos = single.photos;
+            }
+            if (!loadedPhotos.length && album.folderId) {
+              const folderRes = await fetchFolderPhotosFromGas(album.folderId, album.folderId);
+              if (folderRes && folderRes.photos && folderRes.photos.length) loadedPhotos = folderRes.photos;
+            }
+            if (loadedPhotos.length && state.editingAlbumId === album.id && !state.stagedPhotos.length) {
+              album.photos = loadedPhotos;
+              state.stagedPhotos = loadedPhotos.map(p => ({ ...p }));
+              saveStoredAlbums();
+              renderStagedPhotos();
+            }
+          } catch (_) {}
+        }
       }
 
       function closeAdminClientInspector() {
@@ -6894,10 +6986,11 @@
           const remoteAlbums = await syncAlbumsFromGas(true);
           if (Array.isArray(remoteAlbums)) {
             if (remoteAlbums.length > 0) {
-              state.albums = remoteAlbums;
+              state.albums = mergeRemoteAlbumsWithLocalMeta(remoteAlbums);
               state.activeAlbumId = state.albums[0].id;
               renderedGridAlbumId = null;
               renderedGridCount = 0;
+              renderedCoverKey = null;
               saveStoredAlbums();
             }
             els.syncGasBtn.textContent = 'ซิงค์สำเร็จ ✓';
@@ -7519,14 +7612,20 @@
 
         try {
           let resolved = null;
-          if (targetAlbumId) {
-            resolved = state.albums.find(a => a.id === targetAlbumId || a.title === targetAlbumId) || null;
-          }
-          if (!resolved && targetSharePayload) {
-            resolved = decodeAlbumSharePayload(targetSharePayload);
-          }
-          if (!resolved && targetAlbumId) {
-            resolved = await fetchSingleAlbumFromGas(targetAlbumId);
+          const decodedFromLink = targetSharePayload ? decodeAlbumSharePayload(targetSharePayload) : null;
+          const localMatch = targetAlbumId
+            ? (state.albums.find(a => a.id === targetAlbumId || a.title === targetAlbumId) || null)
+            : null;
+
+          if (localMatch && decodedFromLink) {
+            resolved = mergeClientAlbumData(localMatch, decodedFromLink);
+          } else if (localMatch) {
+            resolved = localMatch;
+          } else if (targetAlbumId) {
+            const remoteSingle = await fetchSingleAlbumFromGas(targetAlbumId, decodedFromLink ? decodedFromLink.folderId : '');
+            resolved = remoteSingle ? mergeClientAlbumData(remoteSingle, decodedFromLink) : decodedFromLink;
+          } else {
+            resolved = decodedFromLink;
           }
 
           if (!resolved) {
@@ -7798,27 +7897,40 @@
 
         try {
           if (state.clientRequestedAlbumId) {
-            const single = await fetchSingleAlbumFromGas(state.clientRequestedAlbumId);
+            const shareDecoded = state.clientLockedAlbum;
+            const single = await fetchSingleAlbumFromGas(
+              state.clientRequestedAlbumId,
+              shareDecoded ? shareDecoded.folderId : ''
+            );
             if (single) {
-              state.clientLockedAlbum = single;
-            } else if (!state.clientLockedAlbum) {
+              state.clientLockedAlbum = mergeClientAlbumData(single, shareDecoded);
+              renderedCoverKey = null;
+            } else {
               const allRemote = await syncAlbumsFromGas(false);
               if (Array.isArray(allRemote)) {
                 const matched = allRemote.find(a => a.id === state.clientRequestedAlbumId);
-                if (matched) state.clientLockedAlbum = matched;
-              } else {
+                if (matched) {
+                  state.clientLockedAlbum = mergeClientAlbumData(matched, shareDecoded);
+                  renderedCoverKey = null;
+                }
+              } else if (!state.clientLockedAlbum) {
                 const localMatch = state.albums.find(a => a.id === state.clientRequestedAlbumId);
                 if (localMatch) state.clientLockedAlbum = localMatch;
               }
+            }
+            if (state.clientLockedAlbum && state.clientLockedAlbum.sharedDesign) {
+              state.cardDesign = Object.assign({}, state.cardDesign, state.clientLockedAlbum.sharedDesign);
+              applyCardDesignToDOM();
             }
           } else {
             const remoteAlbums = await syncAlbumsFromGas(false);
             if (Array.isArray(remoteAlbums) && remoteAlbums.length > 0) {
               const prevFirstId = state.albums[0] ? state.albums[0].id : '';
-              state.albums = remoteAlbums;
+              state.albums = mergeRemoteAlbumsWithLocalMeta(remoteAlbums);
               if (!state.activeAlbumId || !state.albums.some(a => a.id === state.activeAlbumId)) {
                 state.activeAlbumId = state.albums[0].id;
               }
+              renderedCoverKey = null;
               saveStoredAlbums();
               if (!prevFirstId) {
                 renderedGridAlbumId = null;
