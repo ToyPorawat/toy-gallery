@@ -118,6 +118,292 @@
     .seg-pill-btn[data-set-enfont="syne"] { font-family: 'Syne', sans-serif; }
     .seg-pill-btn[data-set-enfont="outfit"] { font-family: 'Outfit', sans-serif; }
 
+    /* ================= CURATED STUDIO ALBUM THEMES ================= */
+    body {
+      transition: background-color 0.35s ease, color 0.28s ease;
+    }
+
+    body[data-gallery-theme="minimal-white"] {
+      --t-bg: #ffffff;
+      --t-subtle: #f4f4f5;
+      --t-surface: #ffffff;
+      --t-polaroid: #ffffff;
+      --t-border: #e4e4e7;
+      --t-border-strong: #d4d4d8;
+      --t-ink: #09090b;
+      --t-ink-sec: #3f3f46;
+      --t-muted: #71717a;
+      --t-disp-muted: #c4c8d0;
+      --t-toolbar: rgba(250, 250, 250, 0.86);
+      --t-primary-bg: linear-gradient(180deg, #1f1f23 0%, #09090b 100%);
+      --t-primary-ink: #ffffff;
+      --t-primary-border: #09090b;
+    }
+
+    body[data-gallery-theme="warm-ivory"] {
+      --t-bg: #faf6f0;
+      --t-subtle: #f1ebe1;
+      --t-surface: #fffdf9;
+      --t-polaroid: #fffdf9;
+      --t-border: #e5dccf;
+      --t-border-strong: #d5c8b6;
+      --t-ink: #261f19;
+      --t-ink-sec: #52453a;
+      --t-muted: #847466;
+      --t-disp-muted: #c9bdb0;
+      --t-toolbar: rgba(252, 248, 242, 0.88);
+      --t-primary-bg: linear-gradient(180deg, #47392e 0%, #2c221b 100%);
+      --t-primary-ink: #fffdf9;
+      --t-primary-border: #2c221b;
+    }
+
+    body[data-gallery-theme="dark-cinema"] {
+      --t-bg: #0c0c0f;
+      --t-subtle: #18181d;
+      --t-surface: #16161b;
+      --t-polaroid: #1a1a20;
+      --t-border: #2a2a33;
+      --t-border-strong: #3d3d48;
+      --t-ink: #f4f4f6;
+      --t-ink-sec: #d4d4d8;
+      --t-muted: #9ca3af;
+      --t-disp-muted: #52525e;
+      --t-toolbar: rgba(22, 22, 27, 0.86);
+      --t-primary-bg: linear-gradient(180deg, #ffffff 0%, #e4e4e7 100%);
+      --t-primary-ink: #09090b;
+      --t-primary-border: #f4f4f5;
+    }
+
+    body[data-gallery-theme="earth-sage"] {
+      --t-bg: #f3f6f2;
+      --t-subtle: #e6ece4;
+      --t-surface: #fbfcfa;
+      --t-polaroid: #fbfcfa;
+      --t-border: #d3ddd0;
+      --t-border-strong: #bccab8;
+      --t-ink: #1a241c;
+      --t-ink-sec: #3c4b3f;
+      --t-muted: #68786b;
+      --t-disp-muted: #b3c0b5;
+      --t-toolbar: rgba(244, 247, 243, 0.88);
+      --t-primary-bg: linear-gradient(180deg, #37493b 0%, #222f25 100%);
+      --t-primary-ink: #f8faf7;
+      --t-primary-border: #222f25;
+    }
+
+    body[data-gallery-theme="blush-rose"] {
+      --t-bg: #fcf6f7;
+      --t-subtle: #f5eaec;
+      --t-surface: #fffcfd;
+      --t-polaroid: #fffcfd;
+      --t-border: #ead9dd;
+      --t-border-strong: #dbc2c8;
+      --t-ink: #2b1c20;
+      --t-ink-sec: #593e45;
+      --t-muted: #8a6c74;
+      --t-disp-muted: #d1bcc2;
+      --t-toolbar: rgba(253, 247, 248, 0.88);
+      --t-primary-bg: linear-gradient(180deg, #56353f 0%, #382028 100%);
+      --t-primary-ink: #fffcfd;
+      --t-primary-border: #382028;
+    }
+
+    body[data-gallery-theme="nordic-slate"] {
+      --t-bg: #f2f5f9;
+      --t-subtle: #e5ebf2;
+      --t-surface: #ffffff;
+      --t-polaroid: #ffffff;
+      --t-border: #d5deea;
+      --t-border-strong: #bcc9da;
+      --t-ink: #0f172a;
+      --t-ink-sec: #334155;
+      --t-muted: #64748b;
+      --t-disp-muted: #b6c2d2;
+      --t-toolbar: rgba(243, 246, 250, 0.88);
+      --t-primary-bg: linear-gradient(180deg, #273549 0%, #0f172a 100%);
+      --t-primary-ink: #f8fafc;
+      --t-primary-border: #0f172a;
+    }
+
+    /* Apply Active Album Theme across Gallery View & Page Shell */
+    body[data-gallery-theme] {
+      background-color: var(--t-bg);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] .brand-logo {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] .brand-logo:hover {
+      color: var(--t-ink);
+      background: var(--t-subtle);
+    }
+    body[data-gallery-theme] #galleryView .gallery-title {
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .gallery-subtitle {
+      color: var(--t-disp-muted);
+    }
+    body[data-gallery-theme] #galleryView .album-tabs {
+      background: var(--t-subtle);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn:hover:not(.active) {
+      color: var(--t-ink);
+      background: rgba(128, 128, 136, 0.1);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn.active {
+      background: var(--t-surface);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .gallery-toolbar {
+      background: var(--t-toolbar);
+      border-color: var(--t-border);
+      box-shadow: var(--shadow-sm);
+    }
+    body[data-gallery-theme] #galleryView .btn-primary {
+      background: var(--t-primary-bg);
+      color: var(--t-primary-ink);
+      border-color: var(--t-primary-border);
+    }
+    body[data-gallery-theme] #galleryView .btn-secondary,
+    body[data-gallery-theme] #galleryView .btn-earth-soft {
+      background: var(--t-surface);
+      color: var(--t-ink);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .btn-secondary:hover:not(:disabled),
+    body[data-gallery-theme] #galleryView .btn-earth-soft:hover:not(:disabled) {
+      background: var(--t-subtle);
+      border-color: var(--t-border-strong);
+    }
+    body[data-gallery-theme] #galleryView .btn-ghost {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .btn-ghost:hover:not(:disabled) {
+      color: var(--t-ink);
+      background: rgba(128, 128, 136, 0.12);
+    }
+    body[data-gallery-theme] #galleryView .photo-card,
+    body[data-gallery-theme] #galleryView .photo-card-media {
+      background: var(--t-subtle);
+    }
+    body[data-gallery-theme] #galleryView .photo-grid[data-frame="polaroid"] .photo-card {
+      background: var(--t-polaroid);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme="dark-cinema"] #galleryView .photo-loading {
+      background: linear-gradient(105deg, #18181d 25%, #272730 48%, #18181d 72%);
+      background-size: 200% 100%;
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .photo-card.selected {
+      box-shadow: 0 0 0 3px var(--t-ink), 0 0 0 6px rgba(128, 128, 136, 0.22), var(--shadow-hover) !important;
+    }
+    body[data-gallery-theme] #galleryView .empty-state,
+    body[data-gallery-theme] #galleryView .photographer-bio-card,
+    body[data-gallery-theme] #galleryView .expiry-notice-bar,
+    body[data-gallery-theme] #galleryView .testimonial-submitted-box {
+      background: var(--t-subtle);
+      border-color: var(--t-border);
+      color: var(--t-ink-sec);
+    }
+    body[data-gallery-theme] #galleryView .client-pin-card,
+    body[data-gallery-theme] #galleryView .testimonial-card,
+    body[data-gallery-theme] #galleryView .studio-contact-btn,
+    body[data-gallery-theme] #galleryView .empty-icon {
+      background: var(--t-surface);
+      border-color: var(--t-border);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .empty-state h3,
+    body[data-gallery-theme] #galleryView .bio-card-titles h3,
+    body[data-gallery-theme] #galleryView .testimonial-card h3 {
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .empty-state p,
+    body[data-gallery-theme] #galleryView .testimonial-card > p,
+    body[data-gallery-theme] #galleryView .bio-card-eyebrow {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .bio-card-desc,
+    body[data-gallery-theme] #galleryView .field label {
+      color: var(--t-ink-sec);
+    }
+    body[data-gallery-theme] #galleryView .gallery-studio-footer {
+      border-top-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .input,
+    body[data-gallery-theme] #galleryView .textarea {
+      background: var(--t-bg);
+      border-color: var(--t-border);
+      color: var(--t-ink);
+    }
+
+    /* Admin Album Theme Swatch Picker */
+    .theme-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    @media (min-width: 520px) {
+      .theme-picker-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .theme-pick-btn {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 11px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--ink-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+    }
+
+    .theme-pick-btn:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .theme-pick-btn.active {
+      border-color: var(--zinc-950);
+      background: var(--zinc-950);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(9, 9, 11, 0.16);
+    }
+
+    .theme-swatch-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid rgba(9, 9, 11, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      display: inline-block;
+    }
+
+    .seg-swatch-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: -1px;
+      border: 1px solid rgba(9, 9, 11, 0.2);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -3417,6 +3703,18 @@
             </div>
           </div>
 
+          <div id="defaultThemeBarWrap" class="en-font-bar-wrap">
+            <div class="seg-pill-bar" role="group" aria-label="ธีมสีหลักของหน้าแกลเลอรี">
+              <span class="seg-pill-label">ธีมหลัก</span>
+              <button type="button" class="seg-pill-btn active" data-set-default-theme="minimal-white"><span class="seg-swatch-dot" style="background: #ffffff;"></span>Minimal White</button>
+              <button type="button" class="seg-pill-btn" data-set-default-theme="warm-ivory"><span class="seg-swatch-dot" style="background: #efe5d5;"></span>Warm Ivory</button>
+              <button type="button" class="seg-pill-btn" data-set-default-theme="dark-cinema"><span class="seg-swatch-dot" style="background: #141418;"></span>Dark Cinema</button>
+              <button type="button" class="seg-pill-btn" data-set-default-theme="earth-sage"><span class="seg-swatch-dot" style="background: #d7e3d4;"></span>Botanical Sage</button>
+              <button type="button" class="seg-pill-btn" data-set-default-theme="blush-rose"><span class="seg-swatch-dot" style="background: #f2dce1;"></span>Soft Blush</button>
+              <button type="button" class="seg-pill-btn" data-set-default-theme="nordic-slate"><span class="seg-swatch-dot" style="background: #dae3f0;"></span>Nordic Slate</button>
+            </div>
+          </div>
+
           <div id="styleDrawerCard" class="style-drawer-card" hidden>
             <div class="seg-pill-bar" role="group" aria-label="สไตล์กรอบรูป">
               <span class="seg-pill-label">กรอบ</span>
@@ -3475,6 +3773,11 @@
             <div class="field">
               <label id="albumIconPickerLabel">ไอคอนหมวดหมู่บนแถบอัลบั้ม</label>
               <div id="albumIconPicker" class="icon-picker-grid" role="radiogroup" aria-labelledby="albumIconPickerLabel"></div>
+            </div>
+
+            <div class="field">
+              <label id="albumThemePickerLabel">ธีมสีประจำอัลบั้ม (เลือกแยกเฉพาะอัลบั้มได้)</label>
+              <div id="albumThemePicker" class="theme-picker-grid" role="radiogroup" aria-labelledby="albumThemePickerLabel"></div>
             </div>
 
             <div class="field">
@@ -3917,6 +4220,23 @@
         return found ? found.svg : ALBUM_TAB_ICONS[0].svg;
       }
 
+      const VALID_THEME_KEYS = ['minimal-white', 'warm-ivory', 'dark-cinema', 'earth-sage', 'blush-rose', 'nordic-slate'];
+      const ALBUM_THEMES = [
+        { key: 'default', label: 'ตามธีมหลักเว็บ', swatch: 'linear-gradient(135deg, #ffffff 50%, #18181b 50%)' },
+        { key: 'minimal-white', label: 'Minimal White', swatch: 'linear-gradient(135deg, #ffffff 55%, #09090b 45%)' },
+        { key: 'warm-ivory', label: 'Warm Ivory', swatch: 'linear-gradient(135deg, #efe5d5 55%, #3d3128 45%)' },
+        { key: 'dark-cinema', label: 'Dark Cinema', swatch: 'linear-gradient(135deg, #141418 55%, #f4f4f6 45%)' },
+        { key: 'earth-sage', label: 'Botanical Sage', swatch: 'linear-gradient(135deg, #d7e3d4 55%, #2f3e33 45%)' },
+        { key: 'blush-rose', label: 'Soft Blush', swatch: 'linear-gradient(135deg, #f2dce1 55%, #4a2c35 45%)' },
+        { key: 'nordic-slate', label: 'Nordic Slate', swatch: 'linear-gradient(135deg, #dae3f0 55%, #1e293b 45%)' }
+      ];
+
+      function getAlbumThemeLabel(themeKey) {
+        if (!themeKey || themeKey === 'default') return '';
+        const found = ALBUM_THEMES.find(t => t.key === themeKey);
+        return found ? found.label : '';
+      }
+
       // Application State
       const state = {
         gasUrl: DEFAULT_GAS_URL,
@@ -3938,6 +4258,7 @@
         isAdminPreviewingClient: false,
         editingAlbumId: null,
         stagedIcon: 'photo',
+        stagedTheme: 'default',
         stagedCoverDriveId: '',
         stagedFolderId: '',
         stagedPhotos: [],
@@ -3947,6 +4268,7 @@
         lightboxIndex: -1,
         isStyleDrawerOpen: false,
         cardDesign: {
+          defaultTheme: 'minimal-white',
           enFont: 'space',
           layout: 'masonry',
           cols: '3',
@@ -4102,6 +4424,7 @@
       function loadStoredCardDesign() {
         const validFonts = ['space', 'inter', 'playfair', 'cormorant', 'syne', 'outfit'];
         const defaults = {
+          defaultTheme: 'minimal-white',
           enFont: 'space',
           layout: 'masonry',
           cols: '3',
@@ -4118,6 +4441,7 @@
           const parsed = JSON.parse(raw);
           if (!parsed || typeof parsed !== 'object') return defaults;
           return {
+            defaultTheme: VALID_THEME_KEYS.includes(parsed.defaultTheme) ? parsed.defaultTheme : defaults.defaultTheme,
             enFont: validFonts.includes(parsed.enFont) ? parsed.enFont : defaults.enFont,
             layout: ['masonry', '1-1', '3-4'].includes(parsed.layout) ? parsed.layout : defaults.layout,
             cols: ['2', '3', '4'].includes(String(parsed.cols)) ? String(parsed.cols) : defaults.cols,
@@ -4367,6 +4691,7 @@
           const meta = {
             coverDriveId: album.coverDriveId || '',
             icon: album.icon || 'photo',
+            theme: album.theme || 'default',
             clientPin: album.clientPin || '',
             expiresAt: album.expiresAt || ''
           };
@@ -4392,6 +4717,7 @@
           return Object.assign({}, rem, {
             coverDriveId: rem.coverDriveId || (loc && loc.coverDriveId) || (savedMeta && savedMeta.coverDriveId) || '',
             icon: (rem.icon && rem.icon !== 'photo') ? rem.icon : ((loc && loc.icon) || (savedMeta && savedMeta.icon) || rem.icon || 'photo'),
+            theme: (rem.theme && rem.theme !== 'default') ? rem.theme : ((loc && loc.theme) || (savedMeta && savedMeta.theme) || rem.theme || 'default'),
             clientPin: rem.clientPin !== undefined && rem.clientPin !== '' ? rem.clientPin : ((loc && loc.clientPin) || (savedMeta && savedMeta.clientPin) || ''),
             expiresAt: rem.expiresAt !== undefined && rem.expiresAt !== '' ? rem.expiresAt : ((loc && loc.expiresAt) || (savedMeta && savedMeta.expiresAt) || ''),
             photos: (rem.photos && rem.photos.length > 0) ? rem.photos : ((loc && loc.photos) || [])
@@ -4411,6 +4737,7 @@
             ? shareDecoded.description
             : (remoteAlbum.description || ''),
           icon: shareDecoded.icon || remoteAlbum.icon || (savedMeta && savedMeta.icon) || 'photo',
+          theme: (remoteAlbum.theme && remoteAlbum.theme !== 'default') ? remoteAlbum.theme : ((shareDecoded && shareDecoded.theme) || (savedMeta && savedMeta.theme) || 'default'),
           // Prioritize coverDriveId from the sent share link (?share=...) so updated covers always appear for clients
           coverDriveId: shareDecoded.coverDriveId || remoteAlbum.coverDriveId || (savedMeta && savedMeta.coverDriveId) || '',
           clientPin: remoteAlbum.clientPin || shareDecoded.clientPin || (savedMeta && savedMeta.clientPin) || '',
@@ -4648,9 +4975,10 @@
           const meta = {
             c: album.coverDriveId || '',
             i: album.icon || 'photo',
+            th: album.theme || 'default',
             pin: album.clientPin || '',
             exp: album.expiresAt || '',
-            s: [d.layout || 'masonry', d.cols || '3', d.frame || 'polaroid', d.corner || 'glow', d.tilt ? 1 : 0, d.bw ? 1 : 0, d.watermark !== false ? 1 : 0, d.caption ? 1 : 0, d.enFont || 'space']
+            s: [d.layout || 'masonry', d.cols || '3', d.frame || 'polaroid', d.corner || 'glow', d.tilt ? 1 : 0, d.bw ? 1 : 0, d.watermark !== false ? 1 : 0, d.caption ? 1 : 0, d.enFont || 'space', d.defaultTheme || 'minimal-white']
           };
           if (hasBioContent) {
             meta.sp = [sb.enabled ? 1 : 0, sb.name || '', sb.description || '', sb.phone || '', sb.line || '', sb.instagram || ''];
@@ -4762,6 +5090,7 @@
         if (!sharedDesign && meta && Array.isArray(meta.s) && meta.s.length >= 8) {
           const validFonts = ['space', 'inter', 'playfair', 'cormorant', 'syne', 'outfit'];
           sharedDesign = {
+            defaultTheme: VALID_THEME_KEYS.includes(meta.s[9]) ? meta.s[9] : 'minimal-white',
             enFont: validFonts.includes(meta.s[8]) ? meta.s[8] : 'space',
             layout: ['masonry', '1-1', '3-4'].includes(meta.s[0]) ? meta.s[0] : 'masonry',
             cols: ['2', '3', '4'].includes(String(meta.s[1])) ? String(meta.s[1]) : '3',
@@ -4786,11 +5115,15 @@
           };
         }
 
+        const rawTheme = String(raw.theme || raw.albumTheme || (meta && meta.th) || 'default').trim();
+        const validTheme = VALID_THEME_KEYS.includes(rawTheme) ? rawTheme : 'default';
+
         return {
           id: String(raw.id || raw.albumId || raw.slug || raw.token || raw.shareToken || ('alb-' + Date.now().toString(36))),
           title: String(raw.title || raw.name || raw.albumName || 'Album'),
           description: unpacked.cleanDesc,
           icon: String(raw.icon || raw.categoryIcon || (meta && meta.i) || 'photo'),
+          theme: validTheme,
           coverDriveId: extractedCoverIds[0] || rawCover || '',
           clientPin: String(raw.clientPin || raw.pin || (meta && meta.pin) || '').trim(),
           expiresAt: String(raw.expiresAt || raw.expiryDate || (meta && meta.exp) || '').trim(),
@@ -6009,6 +6342,7 @@
         albumTitleInput: document.getElementById('albumTitleInput'),
         albumDescInput: document.getElementById('albumDescInput'),
         albumIconPicker: document.getElementById('albumIconPicker'),
+        albumThemePicker: document.getElementById('albumThemePicker'),
         modeFolderBtn: document.getElementById('modeFolderBtn'),
         modeLinksBtn: document.getElementById('modeLinksBtn'),
         folderSourcePanel: document.getElementById('folderSourcePanel'),
@@ -6105,6 +6439,16 @@
       function applyCardDesignToDOM() {
         const d = state.cardDesign;
         document.body.setAttribute('data-en-font', d.enFont || 'space');
+
+        const curAlbum = getCurrentAlbum();
+        const albumTheme = curAlbum && VALID_THEME_KEYS.includes(curAlbum.theme) ? curAlbum.theme : '';
+        const resolvedGalleryTheme = albumTheme || (VALID_THEME_KEYS.includes(d.defaultTheme) ? d.defaultTheme : 'minimal-white');
+        if (state.activeView === 'admin') {
+          document.body.removeAttribute('data-gallery-theme');
+        } else {
+          document.body.setAttribute('data-gallery-theme', resolvedGalleryTheme);
+        }
+
         if (els.photoGrid) {
           els.photoGrid.setAttribute('data-layout', d.layout);
           els.photoGrid.setAttribute('data-cols', d.cols);
@@ -6126,6 +6470,9 @@
           els.toggleStyleDrawerBtn.classList.toggle('btn-secondary', !state.isStyleDrawerOpen);
         }
 
+        document.querySelectorAll('[data-set-default-theme]').forEach((btn) => {
+          btn.classList.toggle('active', btn.getAttribute('data-set-default-theme') === (d.defaultTheme || 'minimal-white'));
+        });
         document.querySelectorAll('[data-set-enfont]').forEach((btn) => {
           btn.classList.toggle('active', btn.getAttribute('data-set-enfont') === (d.enFont || 'space'));
         });
@@ -6882,6 +7229,7 @@
       function renderGalleryView() {
         const isLockedClient = Boolean(state.clientLockedAlbum || state.clientRequestedAlbumId);
         const currentAlbum = getCurrentAlbum();
+        applyCardDesignToDOM();
 
         if (els.galleryExpiredState) els.galleryExpiredState.hidden = true;
         if (els.clientPinGate) els.clientPinGate.hidden = true;
@@ -7492,9 +7840,39 @@
         });
       }
 
+      function renderThemePicker() {
+        if (!els.albumThemePicker) return;
+        els.albumThemePicker.innerHTML = '';
+        ALBUM_THEMES.forEach((item) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          const isSelected = (state.stagedTheme || 'default') === item.key;
+          btn.className = 'theme-pick-btn' + (isSelected ? ' active' : '');
+          btn.setAttribute('role', 'radio');
+          btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+
+          const dot = document.createElement('span');
+          dot.className = 'theme-swatch-dot';
+          dot.style.background = item.swatch;
+          dot.setAttribute('aria-hidden', 'true');
+
+          const label = document.createElement('span');
+          label.textContent = item.label;
+
+          btn.appendChild(dot);
+          btn.appendChild(label);
+          btn.addEventListener('click', () => {
+            state.stagedTheme = item.key;
+            renderThemePicker();
+          });
+          els.albumThemePicker.appendChild(btn);
+        });
+      }
+
       function resetAlbumForm() {
         state.editingAlbumId = null;
         state.stagedIcon = 'photo';
+        state.stagedTheme = 'default';
         state.stagedCoverDriveId = '';
         state.stagedFolderId = '';
         state.stagedPhotos = [];
@@ -7510,12 +7888,14 @@
         if (els.albumExpiryInput) els.albumExpiryInput.value = '';
         showFormFeedback('');
         renderIconPicker();
+        renderThemePicker();
         renderStagedPhotos();
       }
 
       async function startEditingAlbum(album) {
         state.editingAlbumId = album.id;
         state.stagedIcon = album.icon || 'photo';
+        state.stagedTheme = VALID_THEME_KEYS.includes(album.theme) ? album.theme : 'default';
         state.stagedCoverDriveId = album.coverDriveId || '';
         state.stagedFolderId = album.folderId || '';
         state.stagedPhotos = (album.photos || []).map(p => ({ ...p }));
@@ -7531,6 +7911,7 @@
         if (els.albumExpiryInput) els.albumExpiryInput.value = album.expiresAt || '';
         showFormFeedback('');
         renderIconPicker();
+        renderThemePicker();
         renderStagedPhotos();
         els.albumTitleInput.focus();
 
@@ -7963,6 +8344,7 @@
       }
 
       function renderAdminView() {
+        document.body.removeAttribute('data-gallery-theme');
         if (!state.isAdminAuthenticated) {
           els.adminLoginGate.hidden = false;
           els.adminProtectedWrap.hidden = true;
@@ -7978,6 +8360,7 @@
         els.adminPasswordInput.value = state.adminPassword;
         applyCardDesignToDOM();
         renderIconPicker();
+        renderThemePicker();
         renderStagedPhotos();
         renderAdminUsersList();
         renderAdminStudioAndFeedback();
@@ -8019,6 +8402,8 @@
           const p = document.createElement('p');
           const statusParts = [];
           if (album.description) statusParts.push(album.description);
+          const customThemeName = getAlbumThemeLabel(album.theme);
+          if (customThemeName) statusParts.push('ธีม ' + customThemeName);
           if (album.clientPin) statusParts.push('ล็อกรหัส PIN');
           if (album.expiresAt) {
             statusParts.push(
@@ -8606,6 +8991,7 @@
         els.saveAlbumBtn.textContent = 'กำลังบันทึกอัลบั้มไปยัง Apps Script...';
 
         const chosenIcon = state.stagedIcon || 'photo';
+        const chosenTheme = VALID_THEME_KEYS.includes(state.stagedTheme) ? state.stagedTheme : 'default';
         const resolvedCoverId = explicitCoverId || (state.stagedPhotos[0] ? state.stagedPhotos[0].driveId : '');
         const albumId = state.editingAlbumId || ('alb-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6));
         const draftAlbum = {
@@ -8613,6 +8999,7 @@
           title: title,
           description: description,
           icon: chosenIcon,
+          theme: chosenTheme,
           coverDriveId: resolvedCoverId,
           clientPin: clientPinVal,
           expiresAt: expiresAtVal,
@@ -8628,6 +9015,7 @@
             title: (savedFromGas && savedFromGas.title && savedFromGas.title !== 'Album') ? savedFromGas.title : title,
             description: description || (savedFromGas && savedFromGas.description) || '',
             icon: chosenIcon,
+            theme: chosenTheme,
             coverDriveId: resolvedCoverId || (savedFromGas && savedFromGas.coverDriveId) || '',
             clientPin: clientPinVal,
             expiresAt: expiresAtVal,
@@ -9174,6 +9562,13 @@
           renderAdminView();
         }
       }
+
+      document.querySelectorAll('[data-set-default-theme]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.cardDesign.defaultTheme = btn.getAttribute('data-set-default-theme') || 'minimal-white';
+          syncAdminDesignChange();
+        });
+      });
 
       document.querySelectorAll('[data-set-enfont]').forEach((btn) => {
         btn.addEventListener('click', () => {
