@@ -3069,7 +3069,7 @@
       }
     }
   </style>
-<style data-link-removed-style>a[data-link-removed],a[href*="zPythonSafez"]:not([onclick]){pointer-events:none!important;cursor:default!important;opacity:.6}</style></head>
+</head>
 <body>
 
   <!-- Client Link Preview Bar (visible only when Admin tests a generated client link inside the app) -->
@@ -3357,7 +3357,7 @@
         <div class="api-bar-grid">
           <div class="api-field">
             <label for="gasUrlInput">Google Apps Script Drive API (Web App URL)</label>
-            <input id="gasUrlInput" type="url" class="input" value="about:invalid#zPythonSafez">
+            <input id="gasUrlInput" type="url" class="input" value="https://script.google.com/macros/s/AKfycbzm0P09gR3nCrZdxTPrn_3kFhndZHL2WN_ApjfMKSZG-yB0HRGn8KnavRwo3yN7mOof/exec">
           </div>
 
           <div class="api-field">
@@ -3816,10 +3816,10 @@
     (function () {
       'use strict';
 
-      const DEFAULT_GAS_URL = 'about:invalid#zPythonSafez';
+      const DEFAULT_GAS_URL = 'https://script.google.com/macros/s/AKfycbzm0P09gR3nCrZdxTPrn_3kFhndZHL2WN_ApjfMKSZG-yB0HRGn8KnavRwo3yN7mOof/exec';
       const STORAGE_KEY = 'toygallery2000s_albums_v2';
       const ALBUM_META_STORAGE = 'toygallery2000s_album_meta_v1';
-      const GAS_URL_STORAGE = 'toygallery2000s_gas_url_v2';
+      const GAS_URL_STORAGE = 'toygallery2000s_gas_url_v3';
       const ADMIN_PASS_STORAGE = 'toygallery2000s_admin_pass_v2';
       const ADMIN_AUTH_SESSION_KEY = 'toygallery2000s_admin_session_v1';
       const ADMIN_USERS_STORAGE = 'toygallery2000s_admin_users_v1';
@@ -4433,8 +4433,8 @@
       function loadStoredGasUrl() {
         try {
           const saved = localStorage.getItem(GAS_URL_STORAGE);
-          // Migrate legacy deployment ID automatically to the newly configured GAS URL
-          if (!saved || !saved.startsWith('about:invalid#zPythonSafez') || saved.includes('AKfycbxpTxGbWfIht')) {
+          // Always default to the primary configured GAS Web App URL unless a valid new GAS URL was explicitly saved
+          if (!saved || !saved.startsWith('https://script.google.com/macros/s/') || saved.includes('AKfycbxpTxGbWfIht')) {
             localStorage.setItem(GAS_URL_STORAGE, DEFAULT_GAS_URL);
             return DEFAULT_GAS_URL;
           }
@@ -4446,7 +4446,9 @@
 
       function saveStoredGasUrl(url) {
         try {
-          if (url) localStorage.setItem(GAS_URL_STORAGE, url);
+          if (url && url.startsWith('https://script.google.com/macros/s/')) {
+            localStorage.setItem(GAS_URL_STORAGE, url);
+          }
         } catch (_) {}
       }
 
@@ -6260,8 +6262,12 @@
       }
 
       function syncAdminInputsToState() {
-        const urlVal = els.gasUrlInput.value.trim();
-        if (urlVal && urlVal !== state.gasUrl) {
+        const rawUrl = els.gasUrlInput.value.trim();
+        const urlVal = rawUrl.startsWith('https://script.google.com/macros/s/') ? rawUrl : DEFAULT_GAS_URL;
+        if (els.gasUrlInput.value !== urlVal) {
+          els.gasUrlInput.value = urlVal;
+        }
+        if (urlVal !== state.gasUrl) {
           state.gasUrl = urlVal;
           saveStoredGasUrl(urlVal);
           loadCachedActionsForUrl(urlVal);
@@ -7025,13 +7031,6 @@
               window.open(cleanVal, '_blank', 'noopener,noreferrer');
               return;
             } catch (_) {}
-          }
-          if (kind === 'phone' && isMobilePhoneDevice()) {
-            const digits = cleanVal.replace(/[^0-9+]/g, '');
-            if (digits) {
-              window.location.href='about:invalid#zPythonSafez' + digits;
-              return;
-            }
           }
           let copied = false;
           try {
