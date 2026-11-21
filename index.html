@@ -342,6 +342,274 @@
       color: var(--t-ink);
     }
 
+    /* Apply Active Album Theme across Gallery View & Page Shell */
+    body[data-gallery-theme] {
+      background-color: var(--t-bg);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] .brand-logo {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] .brand-logo:hover {
+      color: var(--t-ink);
+      background: var(--t-subtle);
+    }
+    body[data-gallery-theme] #galleryView .gallery-title {
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .gallery-subtitle {
+      color: var(--t-disp-muted);
+    }
+    body[data-gallery-theme] #galleryView .album-tabs {
+      background: var(--t-subtle);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn:hover:not(.active) {
+      color: var(--t-ink);
+      background: rgba(128, 128, 136, 0.1);
+    }
+    body[data-gallery-theme] #galleryView .album-tab-btn.active {
+      background: var(--t-surface);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .gallery-toolbar {
+      background: var(--t-toolbar);
+      border-color: var(--t-border);
+      box-shadow: var(--shadow-sm);
+    }
+    body[data-gallery-theme] #galleryView .btn-primary {
+      background: var(--t-primary-bg);
+      color: var(--t-primary-ink);
+      border-color: var(--t-primary-border);
+    }
+    body[data-gallery-theme] #galleryView .btn-secondary,
+    body[data-gallery-theme] #galleryView .btn-earth-soft {
+      background: var(--t-surface);
+      color: var(--t-ink);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .btn-secondary:hover:not(:disabled),
+    body[data-gallery-theme] #galleryView .btn-earth-soft:hover:not(:disabled) {
+      background: var(--t-subtle);
+      border-color: var(--t-border-strong);
+    }
+    body[data-gallery-theme] #galleryView .btn-ghost {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .btn-ghost:hover:not(:disabled) {
+      color: var(--t-ink);
+      background: rgba(128, 128, 136, 0.12);
+    }
+    body[data-gallery-theme] #galleryView .photo-card,
+    body[data-gallery-theme] #galleryView .photo-card-media {
+      background: var(--t-subtle);
+    }
+    body[data-gallery-theme] #galleryView .photo-grid[data-frame="polaroid"] .photo-card {
+      background: var(--t-polaroid);
+      border-color: var(--t-border);
+    }
+    body[data-gallery-theme="dark-cinema"] #galleryView .photo-loading {
+      background: linear-gradient(105deg, #18181d 25%, #272730 48%, #18181d 72%);
+      background-size: 200% 100%;
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .photo-card.selected {
+      box-shadow: 0 0 0 3px var(--t-ink), 0 0 0 6px rgba(128, 128, 136, 0.22), var(--shadow-hover) !important;
+    }
+    body[data-gallery-theme] #galleryView .empty-state,
+    body[data-gallery-theme] #galleryView .photographer-bio-card,
+    body[data-gallery-theme] #galleryView .expiry-notice-bar,
+    body[data-gallery-theme] #galleryView .testimonial-submitted-box {
+      background: var(--t-subtle);
+      border-color: var(--t-border);
+      color: var(--t-ink-sec);
+    }
+    body[data-gallery-theme] #galleryView .client-pin-card,
+    body[data-gallery-theme] #galleryView .testimonial-card,
+    body[data-gallery-theme] #galleryView .studio-contact-btn,
+    body[data-gallery-theme] #galleryView .empty-icon {
+      background: var(--t-surface);
+      border-color: var(--t-border);
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .empty-state h3,
+    body[data-gallery-theme] #galleryView .bio-card-titles h3,
+    body[data-gallery-theme] #galleryView .testimonial-card h3 {
+      color: var(--t-ink);
+    }
+    body[data-gallery-theme] #galleryView .empty-state p,
+    body[data-gallery-theme] #galleryView .testimonial-card > p,
+    body[data-gallery-theme] #galleryView .bio-card-eyebrow {
+      color: var(--t-muted);
+    }
+    body[data-gallery-theme] #galleryView .bio-card-desc,
+    body[data-gallery-theme] #galleryView .field label {
+      color: var(--t-ink-sec);
+    }
+    body[data-gallery-theme] #galleryView .gallery-studio-footer {
+      border-top-color: var(--t-border);
+    }
+    body[data-gallery-theme] #galleryView .input,
+    body[data-gallery-theme] #galleryView .textarea {
+      background: var(--t-bg);
+      border-color: var(--t-border);
+      color: var(--t-ink);
+    }
+
+    /* Guest Finder & Moments / Live Feed Tag Filter System */
+    .smart-tag-container {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      animation: cardCascadeIn 0.5s var(--ease-out-expo) both;
+    }
+    .smart-tag-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .smart-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .smart-tag-btn {
+      background: var(--t-subtle);
+      color: var(--t-ink-sec);
+      border: 1px solid var(--t-border);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s var(--ease-out-expo);
+    }
+    .smart-tag-btn:hover {
+      background: var(--t-surface);
+      color: var(--t-ink);
+      border-color: var(--t-border-strong);
+    }
+    .smart-tag-btn.active {
+      background: var(--t-primary-bg);
+      color: var(--t-primary-ink);
+      border-color: var(--t-primary-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .smart-tag-badge {
+      background: rgba(128, 128, 136, 0.16);
+      color: currentColor;
+      padding: 1px 7px;
+      border-radius: 99px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .smart-tag-btn.active .smart-tag-badge {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    /* Cinematic Welcome Slide Over overlay */
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 105;
+      background: #09090b;
+      color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 24px;
+      animation: cardCascadeIn 0.4s var(--ease-out-expo) both;
+    }
+    .welcome-overlay-inner {
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .welcome-letter-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .welcome-letter-desc {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: rgba(250, 250, 250, 0.76);
+      line-height: 1.65;
+    }
+
+    .welcome-letter-desc {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: rgba(250, 250, 250, 0.76);
+      line-height: 1.65;
+    }
+
+    /* Elegant QR Poster Modal & Tent Cards */
+    .qr-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 95;
+      background: rgba(9, 9, 11, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      animation: drawerSlideIn 0.22s var(--ease-out-expo) both;
+    }
+    .qr-poster-card {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      color: #09090b;
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow-hover);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border: 1px solid #e4e4e7;
+    }
+    .qr-canvas-holder {
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 16px;
+      padding: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-xs);
+    }
+    .qr-poster-meta h4 {
+      margin: 0 0 4px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+    .qr-poster-meta p {
+      margin: 0;
+      font-size: 13.5px;
+      color: #71717a;
+    }
+
     /* Admin Album Theme Swatch Picker */
     .theme-picker-grid {
       display: grid;
@@ -434,6 +702,15 @@
     @keyframes shimmer {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .is-spinning {
+      animation: spin 0.85s linear infinite;
     }
 
     @keyframes cardCascadeIn {
@@ -3381,9 +3658,6 @@
         gap: 7px;
         width: 100%;
       }
-      .gallery-toolbar .toolbar-group:first-child:has(#clearSelectionBtn[hidden]) {
-        grid-template-columns: 1fr;
-      }
       .gallery-toolbar .btn {
         width: 100%;
         padding: 9px 8px;
@@ -3639,6 +3913,23 @@
 
       <!-- Active Album Content -->
       <div id="galleryContentWrap" hidden>
+        <!-- Cinematic Welcome Slide Over Letter -->
+        <div id="welcomeLetterOverlay" class="welcome-overlay" hidden>
+          <div class="welcome-overlay-inner">
+            <div class="studio-monogram" style="width: 64px; height: 64px; font-size: 24px; margin-bottom: 8px;">TG</div>
+            <h2 id="welcomeLetterTitle" class="welcome-letter-title">ยินดีต้อนรับสู่แกลเลอรีภาพถ่ายของคุณ</h2>
+            <p id="welcomeLetterDesc" class="welcome-letter-desc">ขอขอบคุณความไว้วางใจที่ให้เราเก็บความทรงจำที่ล้ำค่านี้ รูปภาพได้รับการอัปโหลดขึ้น Google Drive เรียบร้อยแล้ว พร้อมระบบดาวน์โหลดต้นฉบับคมชัดสูงสุด</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 12px; width: 100%;">
+              <button type="button" id="startWelcomeSlideshowBtn" class="btn btn-primary btn-pill" style="min-height: 44px; padding: 10px 24px;">
+                ▶ เริ่มเล่นสไลด์โชว์ Cinema
+              </button>
+              <button type="button" id="closeWelcomeLetterBtn" class="btn btn-secondary btn-pill" style="min-height: 44px; padding: 10px 24px; background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.2);">
+                เข้าสู่แกลเลอรีโดยตรง
+              </button>
+            </div>
+          </div>
+        </div>
+
         <!-- Album Cover Hero Banner -->
         <div id="albumCoverBanner" class="album-cover-banner" hidden>
           <div id="albumCoverLoading" class="photo-loading">กำลังโหลดหน้าปกอัลบั้ม...</div>
@@ -3647,10 +3938,27 @@
             <span class="album-cover-tag">ALBUM COVER</span>
             <h2 id="albumCoverTitle" class="album-cover-title"></h2>
             <p id="albumCoverDesc" class="album-cover-desc" hidden></p>
-            <button type="button" id="scrollToPhotosBtn" class="album-cover-scroll-btn">
-              ดูรูปภาพในอัลบั้ม ↓
-            </button>
+            <div style="display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap;">
+              <button type="button" id="scrollToPhotosBtn" class="album-cover-scroll-btn">
+                ดูรูปภาพในอัลบั้ม ↓
+              </button>
+              <button type="button" id="playHeroSlideshowBtn" class="album-cover-scroll-btn" style="background: var(--brand-gradient); border-color: #000; color: #fff;">
+                ▶ เล่นสไลด์โชว์ Cinema
+              </button>
+            </div>
           </div>
+        </div>
+
+        <!-- Smart Moments & Guest Tags Filter Panel -->
+        <div id="smartTagContainer" class="smart-tag-container" hidden>
+          <span class="smart-tag-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            ค้นหารูปภาพตามโมเมนต์ / แท็กบุคคล:
+          </span>
+          <div id="smartTagList" class="smart-tag-list"></div>
         </div>
 
         <!-- Polite Expiration Date Notice Banner -->
@@ -3660,6 +3968,21 @@
 
         <div class="gallery-toolbar">
           <div class="toolbar-group">
+            <button type="button" id="refreshDrivePhotosBtn" class="btn btn-secondary" title="รีเฟรชดึงรูปภาพล่าสุดจาก Google Drive">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="refreshDriveIcon">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+              <span id="refreshDriveLabel">รีเฟรชดึงรูปจาก Drive</span>
+            </button>
+            <button type="button" id="toggleSortOrderBtn" class="btn btn-secondary" title="สลับการเรียงลำดับรูปภาพ">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+              <span id="sortOrderLabel">เรียง: ล่าสุดก่อน ↓</span>
+            </button>
             <button type="button" id="toggleSelectAllBtn" class="btn btn-secondary">
               เลือกทั้งหมดในอัลบั้ม
             </button>
@@ -4080,8 +4403,6 @@
           <div id="adminAlbumList" class="album-list" hidden></div>
         </div>
       </div>
-
-      <!-- Admin User Accounts Management (Add / Edit / Remove Login Users) -->
       <div class="card" style="margin-top: var(--space-8);">
         <h2 class="card-title">
           <span>จัดการ User สำหรับเข้าสู่ระบบ (Admin Users)</span>
@@ -4228,6 +4549,32 @@
         </div>
       </div>
       <div id="inspectorBody" class="inspector-body"></div>
+    </div>
+  </div>
+
+  <!-- ================= ELEGANT QR POSTER MODAL ================= -->
+  <div id="qrPosterModal" class="qr-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="qrPosterTitle" hidden>
+    <div class="qr-poster-card">
+      <div class="mobile-save-header" style="width: 100%;">
+        <div>
+          <h3 id="qrPosterTitle" style="margin: 0; font-size: 18px;">ป้าย QR Code ตั้งหน้างาน</h3>
+          <p style="margin: 3px 0 0; font-size: 12.5px; color: var(--muted);">ให้ลูกค้าสแกนเพื่อเปิดดูแกลเลอรีภาพถ่ายได้ทันที</p>
+        </div>
+        <button type="button" id="qrPosterCloseBtn" class="btn btn-ghost" style="padding: 6px 10px;">✕</button>
+      </div>
+
+      <div class="qr-canvas-holder">
+        <canvas id="qrPosterCanvas" width="300" height="300" style="max-width: 100%; height: auto; display: block;"></canvas>
+      </div>
+
+      <div class="qr-poster-meta">
+        <h4 id="qrPosterMetaTitle">ALBUM</h4>
+        <p id="qrPosterMetaPin">PIN: -</p>
+      </div>
+
+      <button type="button" id="qrPosterPrintBtn" class="btn btn-primary btn-pill" style="width: 100%; min-height: 42px;">
+        🖨 พิมพ์ป้าย QR Code / เซฟป้าย
+      </button>
     </div>
   </div>
 
@@ -4448,6 +4795,8 @@
         albums: [],
         isInitialLoading: false,
         isAlbumLoadingPhotos: false,
+        isRefreshingDrive: false,
+        sortOrder: 'newest', // 'newest' | 'original'
         activeView: 'gallery',
         activeAlbumId: null,
         selectedPhotoIds: new Set(),
@@ -5132,12 +5481,20 @@
             mimeType: 'image/jpeg',
             thumbUrl: '',
             coverUrl: '',
-            inlineBase64: ''
+            inlineBase64: '',
+            timestamp: Date.now() - (idx * 1000),
+            rawIndex: idx
           };
         }
         const driveId = String(raw.driveId || raw.fileId || raw.imageId || raw.photoId || raw.id || '').trim();
         if (!driveId) return null;
         const rawThumb = String(raw.thumbnailUrl || raw.thumbUrl || raw.thumbnail || raw.thumbnailLink || raw.previewUrl || raw.viewUrl || raw.directUrl || raw.imageUrl || raw.src || raw.url || '');
+        const rawDate = raw.createdTime || raw.dateCreated || raw.createdAt || raw.modifiedTime || raw.dateModified || raw.updatedAt || raw.lastUpdated || raw.timestamp || raw.date || null;
+        let ts = 0;
+        if (rawDate) {
+          const parsed = new Date(rawDate).getTime();
+          if (!isNaN(parsed) && parsed > 0) ts = parsed;
+        }
         return {
           id: 'ph-' + driveId,
           driveId: driveId,
@@ -5145,7 +5502,9 @@
           mimeType: String(raw.mimeType || raw.contentType || raw.type || 'image/jpeg'),
           thumbUrl: optimizeThumbUrlHint(rawThumb),
           coverUrl: optimizeCoverUrlHint(rawThumb),
-          inlineBase64: String(raw.thumbnailBase64 || raw.thumbBase64 || raw.dataUrl || raw.base64 || '')
+          inlineBase64: String(raw.thumbnailBase64 || raw.thumbBase64 || raw.dataUrl || raw.base64 || ''),
+          timestamp: ts,
+          rawIndex: typeof raw.rawIndex === 'number' ? raw.rawIndex : idx
         };
       }
 
@@ -6495,6 +6854,11 @@
         scrollToPhotosBtn: document.getElementById('scrollToPhotosBtn'),
         albumExpiryNotice: document.getElementById('albumExpiryNotice'),
         albumExpiryNoticeText: document.getElementById('albumExpiryNoticeText'),
+        refreshDrivePhotosBtn: document.getElementById('refreshDrivePhotosBtn'),
+        refreshDriveIcon: document.getElementById('refreshDriveIcon'),
+        refreshDriveLabel: document.getElementById('refreshDriveLabel'),
+        toggleSortOrderBtn: document.getElementById('toggleSortOrderBtn'),
+        sortOrderLabel: document.getElementById('sortOrderLabel'),
         toggleSelectAllBtn: document.getElementById('toggleSelectAllBtn'),
         clearSelectionBtn: document.getElementById('clearSelectionBtn'),
         downloadSelectedBtn: document.getElementById('downloadSelectedBtn'),
@@ -6870,6 +7234,25 @@
         if (found) return found;
         state.activeAlbumId = state.albums[0].id;
         return state.albums[0];
+      }
+
+      function getSortedAlbumPhotos(album) {
+        if (!album || !Array.isArray(album.photos)) return [];
+        const copy = album.photos.slice();
+        if (state.sortOrder === 'newest') {
+          const hasTimestamps = copy.some(p => p && p.timestamp > 0);
+          if (hasTimestamps) {
+            copy.sort((a, b) => {
+              const diff = (b.timestamp || 0) - (a.timestamp || 0);
+              if (diff !== 0) return diff;
+              return (b.rawIndex !== undefined ? b.rawIndex : 0) - (a.rawIndex !== undefined ? a.rawIndex : 0);
+            });
+          } else {
+            // Reverse so newly added items from Drive appear first
+            copy.reverse();
+          }
+        }
+        return copy;
       }
 
       // Detect Smartphone / Touch Mobile Browser (Save directly to Photo Album instead of Files/.ZIP)
@@ -7980,11 +8363,12 @@
       }
 
       function renderPhotoGrid(album) {
-        const photos = album.photos || [];
+        const photos = getSortedAlbumPhotos(album);
         const targetCount = photos.length;
+        const sortSignature = state.sortOrder + '::' + targetCount;
 
-        // If same album & count already mounted, just sync selection classes without tearing down images
-        if (renderedGridAlbumId === album.id && renderedGridCount === targetCount && els.photoGrid.children.length === targetCount) {
+        // If same album, sort order & count already mounted, just sync selection classes without tearing down images
+        if (renderedGridAlbumId === album.id && renderedGridCount === sortSignature && els.photoGrid.children.length === targetCount) {
           syncGridSelectionDOM();
           return;
         }
@@ -7996,7 +8380,7 @@
         }
         els.photoGrid.appendChild(frag);
         renderedGridAlbumId = album.id;
-        renderedGridCount = targetCount;
+        renderedGridCount = sortSignature;
       }
 
       function togglePhotoSelection(photoId) {
@@ -8062,13 +8446,13 @@
 
       function syncLightboxThumbStrip(album) {
         if (!els.lightboxThumbStrip) return;
-        const photos = (album && album.photos) ? album.photos : [];
+        const photos = getSortedAlbumPhotos(album);
         if (photos.length <= 1) {
           els.lightboxThumbStrip.hidden = true;
           return;
         }
         els.lightboxThumbStrip.hidden = false;
-        const stripKey = album.id + '::' + photos.length;
+        const stripKey = album.id + '::' + state.sortOrder + '::' + photos.length;
         if (renderedLbStripKey !== stripKey || els.lightboxThumbStrip.children.length !== photos.length) {
           els.lightboxThumbStrip.innerHTML = '';
           const frag = document.createDocumentFragment();
@@ -8108,7 +8492,8 @@
 
       function openLightbox(index) {
         const album = getCurrentAlbum();
-        if (!album || !album.photos[index]) return;
+        const photos = getSortedAlbumPhotos(album);
+        if (!album || !photos[index]) return;
         state.lightboxIndex = index;
         resetLightboxTransform();
         els.lightboxModal.hidden = false;
@@ -8124,12 +8509,13 @@
 
       function renderLightboxContent() {
         const album = getCurrentAlbum();
+        const photos = getSortedAlbumPhotos(album);
         if (!album || state.lightboxIndex < 0) return;
-        const photo = album.photos[state.lightboxIndex];
+        const photo = photos[state.lightboxIndex];
         if (!photo) return;
 
         resetLightboxTransform();
-        els.lightboxCaption.textContent = (state.lightboxIndex + 1) + ' / ' + album.photos.length + ' — ' + (photo.name || album.title);
+        els.lightboxCaption.textContent = (state.lightboxIndex + 1) + ' / ' + photos.length + ' — ' + (photo.name || album.title);
 
         // Show cached fast thumbnail immediately for 0-wait responsiveness, then upgrade to full-res if available
         const fastThumb = thumbObjectUrlCache.get(photo.driveId);
@@ -8150,23 +8536,24 @@
         }
 
         // Prefetch adjacent thumbnails in background for instant Next/Prev navigation
-        if (album.photos.length > 1) {
-          const nextPh = album.photos[(state.lightboxIndex + 1) % album.photos.length];
-          const prevPh = album.photos[(state.lightboxIndex - 1 + album.photos.length) % album.photos.length];
+        if (photos.length > 1) {
+          const nextPh = photos[(state.lightboxIndex + 1) % photos.length];
+          const prevPh = photos[(state.lightboxIndex - 1 + photos.length) % photos.length];
           if (nextPh) getOrFetchFastThumbnail(nextPh, false);
           if (prevPh) getOrFetchFastThumbnail(prevPh, false);
         }
 
-        els.lightboxPrevBtn.hidden = album.photos.length <= 1;
-        els.lightboxNextBtn.hidden = album.photos.length <= 1;
+        els.lightboxPrevBtn.hidden = photos.length <= 1;
+        els.lightboxNextBtn.hidden = photos.length <= 1;
         syncLightboxThumbStrip(album);
         updateLightboxSelectionButton();
       }
 
       function updateLightboxSelectionButton() {
         const album = getCurrentAlbum();
+        const photos = getSortedAlbumPhotos(album);
         if (!album || state.lightboxIndex < 0) return;
-        const photo = album.photos[state.lightboxIndex];
+        const photo = photos[state.lightboxIndex];
         if (!photo) return;
         const selected = state.selectedPhotoIds.has(photo.id);
         els.lightboxSelectBtn.textContent = selected ? 'เลือกไว้แล้ว ✓ (คลิกเพื่อยกเลิก)' : 'เลือกรูปนี้';
@@ -9118,6 +9505,103 @@
       });
 
       // Selection & Download Controls (in-place DOM updates without reloading thumbnails)
+      if (els.refreshDrivePhotosBtn) {
+        els.refreshDrivePhotosBtn.addEventListener('click', async () => {
+          const album = getCurrentAlbum();
+          if (!album) return;
+          if (!album.folderId && !album.id) {
+            if (els.refreshDriveLabel) {
+              els.refreshDriveLabel.textContent = 'ไม่พบโฟลเดอร์ Drive';
+              setTimeout(() => {
+                els.refreshDriveLabel.textContent = 'รีเฟรชดึงรูปจาก Drive';
+              }, 2000);
+            }
+            return;
+          }
+
+          state.isRefreshingDrive = true;
+          if (els.refreshDriveIcon) els.refreshDriveIcon.classList.add('is-spinning');
+          if (els.refreshDrivePhotosBtn) els.refreshDrivePhotosBtn.disabled = true;
+          if (els.refreshDriveLabel) els.refreshDriveLabel.textContent = 'กำลังดึงรูปจาก Drive...';
+
+          try {
+            let freshPhotos = [];
+            if (album.folderId) {
+              const res = await fetchFolderPhotosFromGas(album.folderId, album.folderId);
+              if (res && res.photos && res.photos.length > 0) {
+                freshPhotos = res.photos;
+              }
+            }
+            if (!freshPhotos.length && album.id) {
+              const detailed = await fetchSingleAlbumFromGas(album.id, album.folderId);
+              if (detailed && detailed.photos && detailed.photos.length > 0) {
+                freshPhotos = detailed.photos;
+              }
+            }
+
+            if (freshPhotos.length > 0) {
+              const existingMap = new Map();
+              (album.photos || []).forEach(p => existingMap.set(p.driveId, p));
+
+              let newCount = 0;
+              const merged = freshPhotos.map((fresh) => {
+                if (!existingMap.has(fresh.driveId)) {
+                  newCount += 1;
+                  return fresh;
+                }
+                const existing = existingMap.get(fresh.driveId);
+                return Object.assign({}, existing, fresh, {
+                  thumbUrl: fresh.thumbUrl || existing.thumbUrl,
+                  coverUrl: fresh.coverUrl || existing.coverUrl,
+                  timestamp: fresh.timestamp || existing.timestamp || Date.now()
+                });
+              });
+
+              album.photos = merged;
+              saveStoredAlbums();
+              renderedGridAlbumId = null;
+              renderedGridCount = 0;
+              renderPhotoGrid(album);
+              renderToolbarState();
+
+              if (els.refreshDriveLabel) {
+                els.refreshDriveLabel.textContent = newCount > 0 ? ('พบรูปใหม่ ' + newCount + ' รูป ✓') : ('อัปเดตแล้ว (' + merged.length + ' รูป) ✓');
+              }
+            } else {
+              if (els.refreshDriveLabel) {
+                els.refreshDriveLabel.textContent = 'ไม่พบรูปภาพในโฟลเดอร์';
+              }
+            }
+          } catch (err) {
+            if (els.refreshDriveLabel) {
+              els.refreshDriveLabel.textContent = 'ดึงรูปไม่สำเร็จ ลองใหม่อีกครั้ง';
+            }
+          } finally {
+            state.isRefreshingDrive = false;
+            setTimeout(() => {
+              if (els.refreshDriveIcon) els.refreshDriveIcon.classList.remove('is-spinning');
+              if (els.refreshDrivePhotosBtn) els.refreshDrivePhotosBtn.disabled = false;
+              if (els.refreshDriveLabel) els.refreshDriveLabel.textContent = 'รีเฟรชดึงรูปจาก Drive';
+            }, 2400);
+          }
+        });
+      }
+
+      if (els.toggleSortOrderBtn) {
+        els.toggleSortOrderBtn.addEventListener('click', () => {
+          state.sortOrder = state.sortOrder === 'newest' ? 'original' : 'newest';
+          if (els.sortOrderLabel) {
+            els.sortOrderLabel.textContent = state.sortOrder === 'newest' ? 'เรียง: ล่าสุดก่อน ↓' : 'เรียง: ลำดับดั้งเดิม ↑';
+          }
+          renderedGridAlbumId = null;
+          renderedGridCount = 0;
+          const album = getCurrentAlbum();
+          if (album) {
+            renderPhotoGrid(album);
+          }
+        });
+      }
+
       els.toggleSelectAllBtn.addEventListener('click', () => {
         const album = getCurrentAlbum();
         if (!album) return;
@@ -9713,22 +10197,25 @@
 
       els.lightboxPrevBtn.addEventListener('click', () => {
         const album = getCurrentAlbum();
-        if (!album || !album.photos.length) return;
-        state.lightboxIndex = (state.lightboxIndex - 1 + album.photos.length) % album.photos.length;
+        const photos = getSortedAlbumPhotos(album);
+        if (!album || !photos.length) return;
+        state.lightboxIndex = (state.lightboxIndex - 1 + photos.length) % photos.length;
         renderLightboxContent();
       });
 
       els.lightboxNextBtn.addEventListener('click', () => {
         const album = getCurrentAlbum();
-        if (!album || !album.photos.length) return;
-        state.lightboxIndex = (state.lightboxIndex + 1) % album.photos.length;
+        const photos = getSortedAlbumPhotos(album);
+        if (!album || !photos.length) return;
+        state.lightboxIndex = (state.lightboxIndex + 1) % photos.length;
         renderLightboxContent();
       });
 
       els.lightboxSelectBtn.addEventListener('click', () => {
         const album = getCurrentAlbum();
+        const photos = getSortedAlbumPhotos(album);
         if (!album || state.lightboxIndex < 0) return;
-        const photo = album.photos[state.lightboxIndex];
+        const photo = photos[state.lightboxIndex];
         if (photo) togglePhotoSelection(photo.id);
       });
 
@@ -9943,16 +10430,18 @@
       if (els.lightboxDownloadSocialBtn) {
         els.lightboxDownloadSocialBtn.addEventListener('click', () => {
           const album = getCurrentAlbum();
+          const photos = getSortedAlbumPhotos(album);
           if (!album || state.lightboxIndex < 0) return;
-          const photo = album.photos[state.lightboxIndex];
+          const photo = photos[state.lightboxIndex];
           if (photo) downloadSinglePhotoSocial(photo, els.lightboxDownloadSocialBtn);
         });
       }
 
       els.lightboxDownloadBtn.addEventListener('click', () => {
         const album = getCurrentAlbum();
+        const photos = getSortedAlbumPhotos(album);
         if (!album || state.lightboxIndex < 0) return;
-        const photo = album.photos[state.lightboxIndex];
+        const photo = photos[state.lightboxIndex];
         if (photo) downloadSinglePhoto(photo, els.lightboxDownloadBtn);
       });
 
