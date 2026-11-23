@@ -4679,11 +4679,12 @@
       const CLIENT_REVIEWS_STORAGE = 'toygallery2000s_reviews_v1';
       const VIEWED_SESSION_STORAGE = 'toygallery2000s_viewed_session_v1';
       const ACTION_CACHE_STORAGE = 'toygallery2000s_gas_actions_v1';
-      const THUMB_IDB_NAME = 'toygallery2000s_thumb_cache_v1';
+      const THUMB_IDB_NAME = 'toygallery2000s_thumb_cache_v2_2048px';
       const THUMB_IDB_STORE = 'thumbs';
       const PAGE_SIZE = 10;
       const MAX_THUMB_WORKERS = 8;
       const SOCIAL_MAX_DIMENSION = 2048;
+      const THUMB_MAX_DIMENSION = 2048;
 
       // Full-resolution cache (driveId -> { blob, objectUrl, mimeType, name })
       const mediaBlobCache = new Map();
@@ -5158,7 +5159,7 @@
           if (!sourceBlob || sourceBlob.size < 26000) {
             return sourceBlob;
           }
-          return await resizeBlobToMaxDimension(sourceBlob, 380, 0.75, true);
+          return await resizeBlobToMaxDimension(sourceBlob, 2048, 0.90, true);
         } catch (_) {
           return sourceBlob;
         }
@@ -5444,7 +5445,7 @@
         return null;
       }
 
-      // Fast 400px thumbnail hint for gallery grid & skip ORB-blocked /uc? view URLs
+      // Fast 2048px thumbnail hint for gallery grid & skip ORB-blocked /uc? view URLs
       function optimizeThumbUrlHint(url) {
         if (!url) return '';
         const str = String(url).trim();
@@ -5452,9 +5453,9 @@
           return '';
         }
         return str
-          .replace(/=s\d+\b/g, '=s400')
-          .replace(/=w\d+(-h\d+)?\b/g, '=w400')
-          .replace(/sz=w\d+\b/g, 'sz=w400');
+          .replace(/=s\d+\b/g, '=s2048')
+          .replace(/=w\d+(-h\d+)?\b/g, '=w2048')
+          .replace(/sz=w\d+\b/g, 'sz=w2048');
       }
 
       // High-Resolution 2048px hint specifically for Album Cover Hero Banner
@@ -5990,8 +5991,8 @@
           thumbnail: true,
           isThumb: true,
           size: 'thumb',
-          width: 480,
-          maxWidth: 480
+          width: 2048,
+          maxWidth: 2048
         };
 
         if (preferredThumbAction) {
